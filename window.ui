@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>586</height>
+    <width>826</width>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,60 +19,25 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>751</width>
+      <width>831</width>
       <height>541</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="welcome">
-     <widget class="QLabel" name="welcome_pic">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>90</y>
-        <width>651</width>
-        <height>421</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>pics/pic1.jpg</pixmap>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>691</width>
-        <height>471</height>
-       </rect>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>pfa/pics/pic1.jpg</pixmap>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>10</y>
-        <width>71</width>
-        <height>17</height>
+        <x>270</x>
+        <y>120</y>
+        <width>111</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Welcome</string>
+       <string>WELCOME PAGE</string>
       </property>
      </widget>
     </widget>
@@ -80,7 +45,7 @@
      <widget class="QLabel" name="labelrecherche_3">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>50</x>
         <y>50</y>
         <width>111</width>
         <height>17</height>
@@ -90,13 +55,13 @@
        <string>Rechercher par:</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget_3">
+     <widget class="QTableWidget" name="table_emp">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>210</y>
-        <width>641</width>
-        <height>192</height>
+        <x>100</x>
+        <y>270</y>
+        <width>611</width>
+        <height>151</height>
        </rect>
       </property>
       <property name="maximumSize">
@@ -162,97 +127,110 @@
        </property>
       </column>
      </widget>
-     <widget class="QWidget" name="gridLayoutWidget">
+     <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>80</y>
-        <width>621</width>
-        <height>81</height>
+        <x>40</x>
+        <y>10</y>
+        <width>131</width>
+        <height>17</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="5">
-        <widget class="QLineEdit" name="naissance_5"/>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLineEdit" name="cin_5"/>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLineEdit" name="prenom_5"/>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="embauche_5"/>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="matricule_5"/>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="labelmatricule_5">
-         <property name="text">
-          <string>Matricule:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelcin_5">
-         <property name="text">
-          <string>CIN :</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="labelprenom_5">
-         <property name="text">
-          <string>Prénom :</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="labelnom_5">
-         <property name="text">
-          <string>Nom :</string>
-         </property>
-        </widget>
-       </item>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Liste Employés&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>621</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="4">
-        <widget class="QLabel" name="labelnaissance_5">
+        <widget class="QLabel" name="labelnaissance_emp">
          <property name="text">
           <string>Date Naissance:</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="5">
-        <widget class="QLineEdit" name="nom_5"/>
+       <item row="0" column="2">
+        <widget class="QLabel" name="labelmatricul_emp">
+         <property name="text">
+          <string>Matricule:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="labelprenom_emp">
+         <property name="text">
+          <string>Prénom :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="mat_emp"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelcin_emp">
+         <property name="text">
+          <string>CIN :</string>
+         </property>
+        </widget>
        </item>
        <item row="1" column="4">
-        <widget class="QLabel" name="labelembauche_5">
+        <widget class="QLabel" name="labelembauche_emp">
          <property name="text">
           <string>Date Embauche:</string>
          </property>
         </widget>
        </item>
+       <item row="1" column="5">
+        <widget class="QLineEdit" name="emb_emp"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="cin_emp"/>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="prenom_emp"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelnom_emp">
+         <property name="text">
+          <string>Nom :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="nom_emp"/>
+       </item>
+       <item row="0" column="5">
+        <widget class="QLineEdit" name="naissance_emp"/>
+       </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="horizontalLayoutWidget">
+     <widget class="QWidget" name="horizontalLayoutWidget_13">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>440</y>
-        <width>611</width>
-        <height>41</height>
+        <x>130</x>
+        <y>450</y>
+        <width>541</width>
+        <height>31</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
        <item>
-        <widget class="QPushButton" name="ajouter_3">
+        <widget class="QPushButton" name="ajouter_emp_2">
          <property name="text">
           <string>Ajouter</string>
          </property>
         </widget>
        </item>
        <item>
-        <spacer name="horizontalSpacer_6">
+        <spacer name="horizontalSpacer_19">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -265,14 +243,14 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="importer_3">
+        <widget class="QPushButton" name="importer_emp">
          <property name="text">
           <string>Importer</string>
          </property>
         </widget>
        </item>
        <item>
-        <spacer name="horizontalSpacer_8">
+        <spacer name="horizontalSpacer_20">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -285,14 +263,53 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="supprimer_3">
+        <widget class="QPushButton" name="Modifier_emp">
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_21">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="supprimer_emp">
          <property name="text">
           <string>Supprimer</string>
          </property>
         </widget>
        </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_17">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>180</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
        <item>
-        <spacer name="horizontalSpacer_9">
+        <widget class="QPushButton" name="recherche_emp">
+         <property name="text">
+          <string>Rechercher</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_22">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -305,9 +322,9 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="Modifier_3">
+        <widget class="QPushButton" name="initialiser_emp">
          <property name="text">
-          <string>Modifier</string>
+          <string>Initialiser</string>
          </property>
         </widget>
        </item>
@@ -321,7 +338,7 @@
         <x>170</x>
         <y>70</y>
         <width>401</width>
-        <height>251</height>
+        <height>252</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout">
@@ -329,76 +346,69 @@
         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
        </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="matricule">
+        <widget class="QLabel" name="label_mat_aj">
          <property name="text">
-          <string>Matricule</string>
+          <string>Matricule :</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="line_mat"/>
+        <widget class="QLineEdit" name="mat_aj_emp"/>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="cin">
+        <widget class="QLabel" name="label_cin_aj">
          <property name="text">
-          <string>CIN</string>
+          <string>CIN :</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="line_cin"/>
+        <widget class="QLineEdit" name="cin_aj_emp"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="nom">
+        <widget class="QLabel" name="label_nom_aj">
          <property name="text">
-          <string>Nom</string>
+          <string>Nom :</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="line_nom"/>
+        <widget class="QLineEdit" name="nom_aj_emp"/>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="prenom">
+        <widget class="QLabel" name="label_prenom_aj">
          <property name="text">
-          <string>Prénom</string>
+          <string>Prénom :</string>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="line_prenom"/>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="naiss">
-         <property name="text">
-          <string>Date Naissance</string>
-         </property>
-        </widget>
+        <widget class="QLineEdit" name="prenom_aj_emp"/>
        </item>
        <item row="4" column="1">
-        <widget class="QDateEdit" name="dateEdit"/>
+        <widget class="QDateEdit" name="naiss_aj_emp"/>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="date_emb">
+        <widget class="QLabel" name="label_emb_aj">
          <property name="text">
-          <string>Date Embauche</string>
+          <string>Date Embauche :</string>
          </property>
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QDateEdit" name="dateEdit_2"/>
+        <widget class="QDateEdit" name="emb_aj_emp"/>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="label_photo_aj">
          <property name="text">
-          <string>Photo</string>
+          <string>Photo :</string>
          </property>
         </widget>
        </item>
        <item row="6" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLineEdit" name="lineEdit_7"/>
+          <widget class="QLineEdit" name="photo_aj_emp"/>
          </item>
          <item>
           <widget class="QToolButton" name="parcourir">
@@ -409,22 +419,29 @@
          </item>
         </layout>
        </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_naiss_aj">
+         <property name="text">
+          <string>Date Naissance :</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="horizontalLayoutWidget_5">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>360</y>
-        <width>301</width>
+        <x>170</x>
+        <y>410</y>
+        <width>401</width>
         <height>31</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="enregistrer_aj">
          <property name="text">
-          <string>Ajouter</string>
+          <string>Enregistrer</string>
          </property>
         </widget>
        </item>
@@ -442,13 +459,26 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="annuler">
+        <widget class="QPushButton" name="annuler_aj">
          <property name="text">
           <string>Annuler</string>
          </property>
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>20</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Ajouter Employés&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="details_gamme">
@@ -468,10 +498,10 @@
      <widget class="QWidget" name="horizontalLayoutWidget_8">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>70</x>
         <y>90</y>
         <width>661</width>
-        <height>80</height>
+        <height>41</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -511,7 +541,7 @@
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>220</y>
+        <y>200</y>
         <width>311</width>
         <height>211</height>
        </rect>
@@ -621,8 +651,133 @@
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>10</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;détails Gamme&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>150</y>
+        <width>98</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rechercher</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="operation">
+    <widget class="QWidget" name="ajout_gamme">
+     <widget class="QWidget" name="formLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>130</y>
+        <width>371</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_3">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="code_model">
+         <property name="text">
+          <string>Code Modèle:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="cd_mod"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="nommodel">
+         <property name="text">
+          <string>Nom Modèle:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="nom_mo_2"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="marqu">
+         <property name="text">
+          <string>Marque:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="mark"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>320</y>
+        <width>251</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_16">
+       <item>
+        <widget class="QPushButton" name="Ajout_gamme">
+         <property name="text">
+          <string>Enregistrer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_14">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="annuler_2">
+         <property name="text">
+          <string>Annuler</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>20</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Ajouter Gamme&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="liste_op">
      <widget class="QLabel" name="recherche_2">
       <property name="geometry">
        <rect>
@@ -639,13 +794,13 @@
      <widget class="QWidget" name="horizontalLayoutWidget_3">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>70</x>
         <y>90</y>
         <width>691</width>
-        <height>51</height>
+        <height>31</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <layout class="QHBoxLayout" name="recherche_3">
        <item>
         <widget class="QLabel" name="code_op">
          <property name="text">
@@ -682,7 +837,7 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>200</y>
+        <y>230</y>
         <width>511</width>
         <height>181</height>
        </rect>
@@ -741,10 +896,10 @@
      <widget class="QWidget" name="horizontalLayoutWidget_4">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>410</y>
+        <x>80</x>
+        <y>450</y>
         <width>621</width>
-        <height>51</height>
+        <height>31</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -817,8 +972,994 @@
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Liste Opérations&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_14">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>140</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <item>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>Initialiser</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Rechercher</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
-    <widget class="QWidget" name="page_2"/>
+    <widget class="QWidget" name="ajout_op">
+     <widget class="QWidget" name="formLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>90</y>
+        <width>371</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="codeop">
+         <property name="text">
+          <string>Code Opération:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="code_ope"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="nom_op_2">
+         <property name="text">
+          <string>Nom Opération:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="nom_operat"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="minutage">
+         <property name="text">
+          <string>Minutage:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="minute"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="machine_2">
+         <property name="text">
+          <string>Machine:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="machin_2"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="critere">
+         <property name="text">
+          <string>Critère de Qualité:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="Qcritere"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="video">
+         <property name="text">
+          <string>Vidéo:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLineEdit" name="video_path"/>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>340</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <item>
+        <widget class="QPushButton" name="Ajout">
+         <property name="text">
+          <string>Enregistrer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Annuler">
+         <property name="text">
+          <string>Annuler</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Ajouter Opération&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ajouter_equilib">
+     <widget class="QLabel" name="recherche_4">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rechercher par:</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>651</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QLabel" name="datedeb">
+         <property name="text">
+          <string>Date Début:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="date_deb"/>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="datefin">
+         <property name="text">
+          <string>Date Fin:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="date_fin"/>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLabel" name="nb_ouv">
+         <property name="text">
+          <string>Nbre Ouvrières:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLineEdit" name="nbr_ouv"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="code_modele_2"/>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="nom_mo">
+         <property name="text">
+          <string>Nom Modèle:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="lineEdit_2"/>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="cadence">
+         <property name="text">
+          <string>Cadence:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QLineEdit" name="cad"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="code_mod_2">
+         <property name="text">
+          <string>Code Modèle:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>250</y>
+        <width>411</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Code Opération</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nom Opération</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Code Employé</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nom Employé</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>439</y>
+        <width>561</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPushButton" name="valider_2">
+         <property name="text">
+          <string>Valider</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="suspendre">
+         <property name="text">
+          <string>Suspendre</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_9">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exporter_2">
+         <property name="text">
+          <string>Exporter</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="annuler_eq">
+         <property name="text">
+          <string>Annuler</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Creer Equilibrage&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_15">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>180</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_12">
+       <item>
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="text">
+          <string>Initialiser</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>Rechercher</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="liste_equilib">
+     <widget class="QTableWidget" name="tableWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>851</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Code Equilibrage</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Code Modèle</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nom Modèle</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date Début</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date Fin</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Cadence</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nbre Ouvrières</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Etat</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>400</y>
+        <width>641</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QPushButton" name="valider">
+         <property name="text">
+          <string>Valider</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="reprendre">
+         <property name="text">
+          <string>Reprendre</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="suppression">
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_12">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exporter">
+         <property name="text">
+          <string>Exporter</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Liste Equilibrages&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="liste_comp">
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Liste Competence&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="recherche_5">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>50</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rechercher par: </string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>80</y>
+        <width>621</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_17">
+       <item>
+        <widget class="QLabel" name="ouvriere">
+         <property name="text">
+          <string>Ouvrière :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="line_ouvr"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="operation">
+         <property name="text">
+          <string>Opération :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="line_op"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="competence">
+         <property name="text">
+          <string>Compétence :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="line_comp"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_11">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>420</y>
+        <width>671</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_18">
+       <item>
+        <widget class="QPushButton" name="affecter_2">
+         <property name="text">
+          <string>Affecter</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_15">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="modifier_2">
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_16">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="supprimer_4">
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_17">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="export_2">
+         <property name="text">
+          <string>Exporter Grille</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>230</y>
+        <width>611</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>CIN</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nom</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Prénom</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Code Opération</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nom Opération</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Compétence</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_16">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>120</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_13">
+       <item>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Initialiser</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="text">
+          <string>Rechercher</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ajouter_comp">
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>20</y>
+        <width>151</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Ajouter Competence&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>120</y>
+        <width>351</width>
+        <height>217</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_4">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="cin_2">
+         <property name="text">
+          <string>CIN :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="line_cin_2"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="nom_2">
+         <property name="text">
+          <string>Nom :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="line_nom_2"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="prenom_2">
+         <property name="text">
+          <string>Prénom : </string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="line_prenom_2"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="line_op_2"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="allure">
+         <property name="text">
+          <string>Allure :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="line_allure"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="retouche">
+         <property name="text">
+          <string>Taux de Retouche :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="line_retouche"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="code">
+         <property name="text">
+          <string>Code Opération :</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_12">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>360</y>
+        <width>291</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <item>
+        <widget class="QPushButton" name="affecter">
+         <property name="text">
+          <string>Enregistrer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_18">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="annuler_3">
+         <property name="text">
+          <string>Annuler</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="stats">
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>30</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#55aaff;&quot;&gt;Page des Statistiques&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -826,7 +1967,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>757</width>
+     <width>826</width>
      <height>25</height>
     </rect>
    </property>
@@ -841,21 +1982,27 @@
     <property name="title">
      <string>Gestion Opérations</string>
     </property>
-    <addaction name="actionDetails_Gamme"/>
-    <addaction name="actionDetails_Operation"/>
+    <addaction name="Details_Gamme"/>
+    <addaction name="Details_Operation"/>
    </widget>
    <widget class="QMenu" name="menu_quilibrage">
     <property name="title">
      <string>Équilibrage</string>
     </property>
-    <addaction name="actionDetail_equilibrage"/>
-    <addaction name="actionListe_equilibrage"/>
+    <addaction name="Creer_equilibrage"/>
+    <addaction name="Liste_equilibrage"/>
    </widget>
    <widget class="QMenu" name="menuStatistiqus">
     <property name="title">
      <string>Consulter Statistiques</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuHome">
+    <property name="title">
+     <string>Accueil</string>
+    </property>
+   </widget>
+   <addaction name="menuHome"/>
    <addaction name="menuGestion_Employes"/>
    <addaction name="menuGestion_Operations"/>
    <addaction name="menu_quilibrage"/>
@@ -875,22 +2022,22 @@
     <string>Compétences</string>
    </property>
   </action>
-  <action name="actionDetails_Gamme">
+  <action name="Details_Gamme">
    <property name="text">
     <string>Détails Gamme</string>
    </property>
   </action>
-  <action name="actionDetails_Operation">
+  <action name="Details_Operation">
    <property name="text">
     <string>Détails Opération</string>
    </property>
   </action>
-  <action name="actionDetail_equilibrage">
+  <action name="Creer_equilibrage">
    <property name="text">
     <string>Créer Équilibrage</string>
    </property>
   </action>
-  <action name="actionListe_equilibrage">
+  <action name="Liste_equilibrage">
    <property name="text">
     <string>Liste Équilibrage</string>
    </property>
