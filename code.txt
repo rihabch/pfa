@@ -1,7 +1,0 @@
-	self.retranslateUi(MainWindow)
-        self.Liste_Employes.triggered.connect(partial(self.stackedWidget.setCurrentWidget,self.liste_emp))
-        self.ajouter_3.clicked.connect(partial(self.stackedWidget.setCurrentWidget,self.ajouter_emp))
-        self.annuler.clicked.connect(partial(self.stackedWidget.setCurrentWidget,self.liste_emp))
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        
-        from functools import partial
