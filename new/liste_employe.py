@@ -1,4 +1,5 @@
 from ui_liste_emp import Ui_Employee_List
+from ajouter_emp import Ajouter_Employe
 from PyQt5.QtWidgets import QWidget
 from PyQt5 import QtSql, QtCore
 
@@ -26,6 +27,8 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
         print (self.model.rowCount())
         self.table_emp.setModel(self.model)
+        #self.ajout = Ajouter_Employe()
+        self.ajouter_emp.clicked.connect(self.add_interface)
 
     def initialise(self):
         self.cin_emp.clear()
@@ -61,3 +64,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         item = self.table_emp.itemAt(row, column)
         ID = item.text()
         print(ID)
+
+    def add_interface(self):
+        self.ajout = Ajouter_Employe()
+        self.ajout.show()
