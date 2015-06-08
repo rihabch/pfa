@@ -104,6 +104,8 @@ class Ui_Employee_List(object):
         self.date_emb_emp = QtWidgets.QDateEdit(self.gridLayoutWidget_2)
         self.date_emb_emp.setObjectName("date_emb_emp")
         self.gridLayout_2.addWidget(self.date_emb_emp, 1, 5, 1, 1)
+        self.date_emb_emp.setDateTime(QtCore.QDateTime.currentDateTime())
+        self.date_nass_emp.setDateTime(QtCore.QDateTime.currentDateTime())
 
 
 

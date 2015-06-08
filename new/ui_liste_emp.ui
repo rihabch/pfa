@@ -178,6 +178,12 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="nom_emp"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="cin_emp"/>
+     </item>
      <item row="0" column="4">
       <widget class="QLabel" name="labelnaissance_emp">
        <property name="text">
@@ -199,9 +205,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="3">
-      <widget class="QLineEdit" name="mat_emp"/>
-     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="labelcin_emp">
        <property name="text">
@@ -216,12 +219,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="cin_emp"/>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLineEdit" name="prenom_emp"/>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="labelnom_emp">
        <property name="text">
@@ -229,14 +226,17 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="nom_emp"/>
+     <item row="1" column="5">
+      <widget class="QDateEdit" name="date_emb_emp"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLineEdit" name="prenom_emp"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLineEdit" name="mat_emp"/>
      </item>
      <item row="0" column="5">
       <widget class="QDateEdit" name="date_nass_emp"/>
-     </item>
-     <item row="1" column="5">
-      <widget class="QDateEdit" name="date_emb_emp"/>
      </item>
     </layout>
    </widget>
