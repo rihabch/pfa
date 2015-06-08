@@ -15,5 +15,4 @@ if __name__ == "__main__":
     MainWindow = Liste_Employe()
     #MainWindow = Ajouter_Employe()
     MainWindow.show()
-
     sys.exit(app.exec_())
