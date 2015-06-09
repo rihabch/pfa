@@ -3,7 +3,6 @@ __author__ = 'rihab'
 import sys
 
 from PyQt5 import QtWidgets
-
 from ajouter_emp import Ajouter_Employe
 from liste_employe import Liste_Employe
 from login import Login

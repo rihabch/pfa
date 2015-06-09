@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>805</width>
+    <height>582</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>805</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuGestion_Employes">
+    <property name="title">
+     <string>Gestion Employés</string>
+    </property>
+    <addaction name="Liste_Employes"/>
+    <addaction name="Competences"/>
+   </widget>
+   <widget class="QMenu" name="menuGestion_Operations">
+    <property name="title">
+     <string>Gestion Opérations</string>
+    </property>
+    <addaction name="Details_Gamme"/>
+    <addaction name="Details_Operation"/>
+   </widget>
+   <widget class="QMenu" name="menu_quilibrage">
+    <property name="title">
+     <string>Équilibrage</string>
+    </property>
+    <addaction name="Creer_equilibrage"/>
+    <addaction name="Liste_equilibrage"/>
+   </widget>
+   <widget class="QMenu" name="menuStatistiqus">
+    <property name="title">
+     <string>Consulter Statistiques</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHome">
+    <property name="title">
+     <string>Accueil</string>
+    </property>
+   </widget>
+   <addaction name="menuHome"/>
+   <addaction name="menuGestion_Employes"/>
+   <addaction name="menuGestion_Operations"/>
+   <addaction name="menu_quilibrage"/>
+   <addaction name="menuStatistiqus"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="Liste_Employes">
+   <property name="text">
+    <string>Liste Employés</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="Competences">
+   <property name="text">
+    <string>Compétences</string>
+   </property>
+  </action>
+  <action name="Details_Gamme">
+   <property name="text">
+    <string>Détails Gamme</string>
+   </property>
+  </action>
+  <action name="Details_Operation">
+   <property name="text">
+    <string>Détails Opération</string>
+   </property>
+  </action>
+  <action name="Creer_equilibrage">
+   <property name="text">
+    <string>Créer Équilibrage</string>
+   </property>
+  </action>
+  <action name="Liste_equilibrage">
+   <property name="text">
+    <string>Liste Équilibrage</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

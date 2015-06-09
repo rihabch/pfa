@@ -1,7 +1,7 @@
 __author__ = 'rihab'
 from ui_login import Ui_Login
 from liste_employe import Liste_Employe
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtSql, QtGui
 from session import Session
 
@@ -12,6 +12,7 @@ class Login(QWidget, Ui_Login):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('utilisateur')
         self.login.clicked.connect(self.submit)
+
         #self.msgBox= QtGui.QMessageBox.warning(self, 'Error Connection', 'Bad user or password')
     def submit(self):
         user_code = self.user.text()
@@ -30,11 +31,13 @@ class Login(QWidget, Ui_Login):
             self.Main = Liste_Employe()
             self.Main.show()
             self.close()
-            session = Session(user_code,passwd)
-            print("login: ")
-            print(session.passe)
+            session = Session()
+            session.set_session(user_code,passwd )
+            #print("login: ")
+            #print(session.passe)
 
         else:
+            QMessageBox.information(self, "ERROR","Invalid Login or Password" )
             self.user.clear()
             self.password.clear()
             #msgBox = QtGui.QMessageBox()
