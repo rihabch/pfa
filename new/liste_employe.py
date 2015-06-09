@@ -68,3 +68,11 @@ class Liste_Employe(QWidget, Ui_Employee_List):
     def add_interface(self):
         self.ajout = ajouter_emp.Ajouter_Employe()
         self.ajout.show()
+
+    def delete_row(self):
+
+        self.model.setEditStrategy(self.model.OnManualSubmit)
+        self.model.select()
+        self.model
+        tv = QTableView(mw)
+        tv.setModel(model)

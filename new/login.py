@@ -35,6 +35,7 @@ class Login(QWidget, Ui_Login):
             print(session.passe)
 
         else:
+            print("not ok")
             self.user.clear()
             self.password.clear()
             #msgBox = QtGui.QMessageBox()

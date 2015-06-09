@@ -9,8 +9,6 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
     def __init__(self):
         super(Ajouter_Employe, self).__init__()
         self.setupUi(self)
-        self.enregistrer_emp.clicked.connect(self.add)
-        self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('employe')
         self.model.select()
@@ -69,7 +67,6 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         print( 'filename:', filename)
         print ('filter:', filter)
 
-    def delete_row(self):
 
-        self.model.removeRows()
+
 
