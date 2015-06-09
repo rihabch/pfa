@@ -66,6 +66,8 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         # if fileName:
          #   print (fileName)
         filename, filter = QtGui.QFileDialog.getOpenFileName(parent=self, caption='Open file', dir=os.getenv("HOME"))
+        print( 'filename:', filename)
+        print ('filter:', filter)
 
     def delete_row(self):
 
