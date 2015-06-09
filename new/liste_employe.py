@@ -12,7 +12,8 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.fill()
         self.initialiser_emp.clicked.connect(self.initialise)
         self.rechercher_emp.clicked.connect(self.search)
-        self.table_emp.itemChanged.connect(self.edit)
+        self.ajouter_emp.clicked.connect(self.add_interface)
+        #self.table_emp.itemChanged.connect(self.edit)
 
     def fill(self):
         self.model.select()
@@ -27,8 +28,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
         print (self.model.rowCount())
         self.table_emp.setModel(self.model)
-        #self.ajout = Ajouter_Employe()
-        self.ajouter_emp.clicked.connect(self.add_interface)
+
 
     def initialise(self):
         self.cin_emp.clear()
