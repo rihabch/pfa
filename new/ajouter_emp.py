@@ -15,10 +15,10 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('employe')
         self.model.select()
-        self.annuler_emp.clicked.connect(self.initialise)
+        self.annuler_emp.clicked.connect(self.toListe)
+        self.initialiser_emp.clicked.connect(self.initialise)
         self.enregistrer_emp.clicked.connect(self.add)
         self.initialiser_emp.clicked.connect(self.initialise)
-
 
 
 
@@ -49,8 +49,6 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
             print(self.db.lastError().databaseText())
 
 
-
-
     def initialise(self):
         self.mat_aj_emp.clear()
         self.cin_aj_emp.clear()
@@ -73,8 +71,3 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         filename, filter = QtGui.QFileDialog.getOpenFileName(parent=self, caption='Open file', dir=os.getenv("HOME"))
         print( 'filename:', filename)
         print ('filter:', filter)
-
-
-
-
-

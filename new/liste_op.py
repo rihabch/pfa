@@ -15,7 +15,7 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         self.model.select()
         self.fill()
         self.initialiser_op.clicked.connect(self.initialise)
-        #self.recherche_op.clicked.connect(self.search)
+        self.recherche_op.clicked.connect(self.search)
         self.ajouter_op.clicked.connect(self.toAdd)
 
     def fill(self):
@@ -37,6 +37,9 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         self.Qcritere.clear()
         self.video_path.clear()
 
+    def search(self):
+        print("trying to do some research")
+
     def toAdd(self):
         self.ajout = ajouter_op.Ajouter_Operation()
         self.ajout.show()
@@ -50,3 +53,4 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         if self.model.submitAll():
             print("ok edit")
             QMessageBox.information(self, "Success","Edit Successful" )
+
