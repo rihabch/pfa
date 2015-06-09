@@ -12,7 +12,6 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.setupUi(self)
         session = Session()
         self.enregistrer_emp.clicked.connect(self.add(session))
-        self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('employe')
         self.model.select()
@@ -65,9 +64,10 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         # fileName = QtGui.QFileDialog.getSaveFileName(self, 'Dialog Title', '/home/imen', selectedFilter='*.*')
         # if fileName:
          #   print (fileName)
-        filename, filter= QtGui.QFileDialog.getOpenFileName(parent=self, caption='Open file', dir=os.getenv("HOME"))
 
-    def delete_row(self):
+        filename, filter = QtGui.QFileDialog.getOpenFileName(parent=self, caption='Open file', dir=os.getenv("HOME"))
+        print( 'filename:', filename)
+        print ('filter:', filter)
 
-        self.model.removeRows()
+
 

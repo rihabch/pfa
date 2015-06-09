@@ -62,14 +62,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         if not len(nom_employe) == 0:
             critere += " and nom = '%s'" %(nom_employe)
         if not len(prenom_employe) == 0:
-            critere += from ui_ajouter_emp import Ui_Add_Employee
-from PyQt5.QtWidgets import QWidget, QMessageBox
-from PyQt5 import QtSql, QtCore, QtGui
-from session import Session
-
-
-class Ajouter_Employe(QWidget, Ui_Add_Employee):
-    def __init__(self):" and prenom = '%s'" %(prenom_employe)
+            critere += " and prenom = '%s'" %(prenom_employe)
         #if not len(date_embauche) == 0:
         #    critere += " AND date_embauche = %s" %(date_embauche)
         #if not len(date_naissance) == 0:
@@ -94,3 +87,11 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
     def add_interface(self):
         self.ajout = ajouter_emp.Ajouter_Employe()
         self.ajout.show()
+
+    def delete_row(self):
+
+        self.model.setEditStrategy(self.model.OnManualSubmit)
+        self.model.select()
+        #self.model
+        #tv = QTableView(mw)
+        #tv.setModel(model)
