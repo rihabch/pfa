@@ -1,6 +1,6 @@
 __author__ = 'imen'
 from ui_ajouter_op import Ui_Ajouter_Op
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtSql
 
 class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
@@ -41,7 +41,7 @@ class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
         self.model.setData(self.model.index(nbr - 1, 6), video)
 
         if self.model.submitAll():
-           print("ok")
+           QMessageBox.information(self, "Success","Add Successful" )
         else:
             self.db = QtSql.QSqlDatabase.database()
             print(self.db.lastError().databaseText())

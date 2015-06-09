@@ -10,17 +10,16 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
     def __init__(self):
         super(Ajouter_Employe, self).__init__()
         self.setupUi(self)
-        session = Session()
-        self.enregistrer_emp.clicked.connect(self.add(session))
+        #session = Session()
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('employe')
         self.model.select()
         self.annuler_emp.clicked.connect(self.initialise)
+        self.enregistrer_emp.clicked.connect(self.add)
 
 
 
-
-    def add(self, session):
+    def add(self):
         matricule_employe = self.mat_aj_emp.text()
         cin_employe = self.cin_aj_emp.text()
         nom_employe = self.nom_aj_emp.text()
@@ -33,7 +32,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.model.insertRow(nbr)
         self.model.setData(self.model.index(nbr - 1, 0), cin_employe)
         self.model.setData(self.model.index(nbr - 1, 1), matricule_employe)
-        self.model.setData(self.model.index(nbr - 1, 2), session.code)
+        self.model.setData(self.model.index(nbr - 1, 2), '1')
         self.model.setData(self.model.index(nbr - 1, 3), nom_employe)
         self.model.setData(self.model.index(nbr - 1, 4), prenom_employe)
         self.model.setData(self.model.index(nbr - 1, 5), date_embauche)
