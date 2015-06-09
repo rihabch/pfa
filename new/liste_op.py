@@ -1,6 +1,7 @@
 __author__ = 'imen'
-from ui_liste_op import Ui_Liste_Op
 
+from ui_liste_op import Ui_Liste_Op
+import ajouter_op
 from PyQt5.QtWidgets import QWidget
 from PyQt5 import QtSql, QtCore
 
@@ -15,7 +16,7 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         self.fill()
         self.initialiser_op.clicked.connect(self.initialise)
         self.recherche_op.clicked.connect(self.search)
-        #self.ajouter_op.clicked.connect(self.add_interface)
+        self.ajouter_op.clicked.connect(self.toAdd)
 
     def fill(self):
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Code Operation")
@@ -38,3 +39,18 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
 
     def search(self):
         print("trying to do some research")
+
+    def toAdd(self):
+        self.ajout = ajouter_op.Ajouter_Operation()
+        self.ajout.show()
+        self.close()
+
+
+    def edit(self):
+        self.table_emp.setModel(self.model)
+        row = self.model.rowCount()
+        self.model.insertRow(row)
+        if self.model.submitAll():
+            print("ok edit")
+            QMessageBox.information(self, "Success","Edit Successful" )
+

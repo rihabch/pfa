@@ -95,7 +95,6 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.close()
 
     def delete_row(self):
-
         self.model.setEditStrategy(self.model.OnManualSubmit)
         self.model.select()
         self.model
