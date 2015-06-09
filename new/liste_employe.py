@@ -10,11 +10,13 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('employe')
+        self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
         self.model.select()
         self.fill()
         self.initialiser_emp.clicked.connect(self.initialise)
         self.rechercher_emp.clicked.connect(self.search)
-        self.ajouter_emp.clicked.connect(self.add_interface)
+        self.ajouter_emp.clicked.connect(self.toAdd)
+        self.Modifier_emp.clicked.connect(self.edit)
         session = Session()
         print("login admin: ")
         print(session.passe)
@@ -58,11 +60,11 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         if not len(cin_employe) == 0:
             critere += " cin_emp = %s" %(cin_employe)
         if not len(matricule_employe) == 0:
-            critere += " and matricule = %s" %(matricule_employe)
+            critere += " matricule = %s" %(matricule_employe)
         if not len(nom_employe) == 0:
-            critere += " and nom = '%s'" %(nom_employe)
+            critere += " nom = '%s'" %(nom_employe)
         if not len(prenom_employe) == 0:
-            critere += " and prenom = '%s'" %(prenom_employe)
+            critere += " prenom = '%s'" %(prenom_employe)
         #if not len(date_embauche) == 0:
         #    critere += " AND date_embauche = %s" %(date_embauche)
         #if not len(date_naissance) == 0:
@@ -72,26 +74,27 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.select()
         print(self.model.rowCount())
         if (self.model.rowCount()== 1):
-            print('ok')
+            print('ok search')
             self.fill()
 
 
     def edit(self):
-        row = self.table_emp.currentRow()
-        column = self.table_emp.currentColumn()
-        print("Row %d and Column %d was clicked" % (row, column))
-        item = self.table_emp.itemAt(row, column)
-        ID = item.text()
-        print(ID)
+        self.table_emp.setModel(self.model)
+        row = self.model.rowCount()
+        self.model.insertRow(row)
+        if self.model.submitAll():
+            print("ok edit")
+            QMessageBox.information(self, "Success","Edit Successful" )
 
-    def add_interface(self):
+    def toAdd(self):
         self.ajout = ajouter_emp.Ajouter_Employe()
         self.ajout.show()
+        self.close()
 
     def delete_row(self):
 
         self.model.setEditStrategy(self.model.OnManualSubmit)
         self.model.select()
-        #self.model
+        self.model
         #tv = QTableView(mw)
         #tv.setModel(model)

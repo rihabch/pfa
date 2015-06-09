@@ -87,6 +87,9 @@ class Ui_Add_Employee(object):
         self.annuler_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
         self.annuler_emp.setObjectName("annuler_emp")
         self.horizontalLayout_6.addWidget(self.annuler_emp)
+        self.initialiser_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.initialiser_emp.setObjectName("initialiser_emp")
+        self.horizontalLayout_6.addWidget(self.initialiser_emp)
 
         self.retranslateUi(MainWindow)
 
@@ -106,4 +109,5 @@ class Ui_Add_Employee(object):
         self.namepage_aj_emp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#55aaff;\">Ajouter Employés</span></p></body></html>"))
         self.enregistrer_emp.setText(_translate("MainWindow", "Enregistrer"))
         self.annuler_emp.setText(_translate("MainWindow", "Annuler"))
+        self.initialiser_emp.setText(_translate("MainWindow", "Initialiser"))
 
