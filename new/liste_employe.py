@@ -32,6 +32,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Image")
         self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Presence")
         self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
+        print("row count")
         print (self.model.rowCount())
         self.table_emp.setModel(self.model)
 
@@ -40,6 +41,8 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.mat_emp.clear()
         self.nom_emp.clear()
         self.prenom_emp.clear()
+        self.model.select()
+        self.fill()
         #self.date_emb_emp.setDateTime(QtCore.QDateTime.currentDateTime())
         #self.date_nass_emp.setDateTime(QtCore.QDateTime.currentDateTime())
 
