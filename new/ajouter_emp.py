@@ -22,9 +22,11 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
 
     def add(self):
         matricule_employe = self.mat_aj_emp.text()
+
         int_expreg = QtCore.QRegExp('[0-9]+')
         int_validator = QtGui.QRegExpValidator(int_expreg,self.mat_aj_emp)
         self.mat_aj_emp.setValidator(int_validator)
+
         cin_employe = self.cin_aj_emp.text()
         cin_expreg = QtCore.QRegExp('[0-9]{8}')
         cin_validator = QtGui.QRegExpValidator(cin_expreg,self.cin_aj_emp)
@@ -33,8 +35,13 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         prenom_employe = self.prenom_aj_emp.text()
         date_naissance = self.naiss_aj_emp.text()
         date_embauche = self.emb_aj_emp.text()
-        #photo = self.photo_aj_emp.text()
+        #if not (self.cin_aj_emp.hasAcceptableInput()):
+        #    QMessageBox.information(self, "Erreur","CIN non valide")
+        #if not (self.mat_aj_emp.hasAcceptableInput):
+        #    QMessageBox.information(self, "Erreur","Matricule non valide")
+        # photo = self.photo_aj_emp.text()
         self.parcourir.clicked.connect(self.import_picture)
+
 
         if not (self.mat_aj_emp.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Matricule non valide")
@@ -66,8 +73,8 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.cin_aj_emp.clear()
         self.nom_aj_emp.clear()
         self.prenom_aj_emp.clear()
-        self.naiss_aj_emp.setDateTime(QtCore.QDateTime.currentDateTime())
-        self.emb_aj_emp.setDateTime(QtCore.QDateTime.currentDateTime())
+        self.naiss_aj_emp.setDateTime(QtCore.QDateTime.currentDateTime)
+        self.emb_aj_emp.setDateTime(QtCore.QDateTime.currentDateTime)
         self.photo_aj_emp.clear()
 
     def import_picture(self):
@@ -76,10 +83,11 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
 
         # QFileDialog.getOpenFileName(self, 'Open File')
 
+
          fileName = QWidget.QFileDialog.getSaveFileName(self, 'Dialog Title', '/home/imen', selectedFilter='*.*')
          if fileName:
             print (fileName)
-
+            QMessageBox.information(self,"Fichier",self.trUtf8("Vous avez sélectionné :\n") + fileName)
 
 
     def toListe(self):

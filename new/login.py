@@ -1,5 +1,6 @@
 __author__ = 'rihab'
 from ui_login import Ui_Login
+from myapp import MyApp
 from liste_employe import Liste_Employe
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtSql, QtGui
@@ -33,9 +34,10 @@ class Login(QWidget, Ui_Login):
 
         if (self.model.rowCount()== 1):
             print('ok')
-            self.Main = Liste_Employe()
-            self.Main.show()
+            self.Main =MyApp()
             self.close()
+            self.Main.show()
+
             session = Session()
             session.set_session(user_code,passwd )
             #print("login: ")

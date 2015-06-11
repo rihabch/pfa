@@ -87,6 +87,7 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
             print('ok search')
             self.fill(self.model)
 
+
     def delete_row(self):
 
             reply = QtWidgets.QMessageBox.question(self, "Demande de suppression","Êtes-vous sûr de vouloir supprimer la compétence ?",
@@ -107,3 +108,5 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
 
                 else:
                     QMessageBox.information(self, "Erreur","Erreur suppression attribut")
+
+

@@ -99,15 +99,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         else:
                 reply.close(self)
 
-
-    def toAdd(self):
-        self.ajout = ajouter_emp.Ajouter_Employe()
-        self.ajout.show()
-        self.close()
-
-
     def delete_row(self):
-
             reply = QtWidgets.QMessageBox.question(self, "Demande de suppression","Êtes-vous sûr de vouloir supprimer l'employé ?",
             QtWidgets.QMessageBox.Yes,
             QtWidgets.QMessageBox.No)
@@ -122,12 +114,15 @@ class Liste_Employe(QWidget, Ui_Employee_List):
                     self.model.submitAll()
                     print("ok suppression")
                     QMessageBox.information(self, "Succès","Suppression avec succès")
-                    self.initialise()
 
+                    self.initialise()
                 else:
                     QMessageBox.information(self, "Erreur","Erreur suppression attribut")
 
             else:
                 reply.close(self)
 
-
+    def toAdd(self):
+        self.ajout = ajouter_emp.Ajouter_Employe()
+        self.ajout.show()
+        self.close()

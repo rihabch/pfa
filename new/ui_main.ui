@@ -7,13 +7,30 @@
     <x>0</x>
     <y>0</y>
     <width>805</width>
-    <height>582</height>
+    <height>516</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="picture">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-140</y>
+      <width>821</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../pics/pic1.jpg</pixmap>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -44,21 +61,9 @@
     <addaction name="Creer_equilibrage"/>
     <addaction name="Liste_equilibrage"/>
    </widget>
-   <widget class="QMenu" name="menuStatistiqus">
-    <property name="title">
-     <string>Consulter Statistiques</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuHome">
-    <property name="title">
-     <string>Accueil</string>
-    </property>
-   </widget>
-   <addaction name="menuHome"/>
    <addaction name="menuGestion_Employes"/>
    <addaction name="menuGestion_Operations"/>
    <addaction name="menu_quilibrage"/>
-   <addaction name="menuStatistiqus"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="Liste_Employes">

@@ -3,7 +3,7 @@ from ui_ajouter_op import Ui_Ajouter_Op
 import liste_op
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtSql
-
+import connexion
 
 class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
     def __init__(self):
@@ -32,21 +32,28 @@ class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
         critere = self.Qcritere.text()
         video = self.video_path.text()
         # self.parcourir.clicked.connect(self.import_video)
-        nbr = self.model.rowCount()
-        self.model.insertRow(nbr)
-        self.model.setData(self.model.index(nbr - 1, 0), code_op)
-        self.model.setData(self.model.index(nbr - 1, 1), '1')
-        self.model.setData(self.model.index(nbr - 1, 2), nom_op)
-        self.model.setData(self.model.index(nbr - 1, 3), minutage)
-        self.model.setData(self.model.index(nbr - 1, 4), machine)
-        self.model.setData(self.model.index(nbr - 1, 5), critere)
-        self.model.setData(self.model.index(nbr - 1, 6), video)
 
-        if self.model.submitAll():
-            QMessageBox.information(self, "Success", "Add Successful")
+        nbr = self.model.rowCount()
+        print("nombre lignes")
+        print(nbr)
+        self.model.insertRow(nbr)
+        self.model.setData(self.model.index(nbr, 0), code_op)
+        self.model.setData(self.model.index(nbr, 1), "admin_02")
+        self.model.setData(self.model.index(nbr, 2), nom_op)
+        self.model.setData(self.model.index(nbr, 3), minutage)
+        self.model.setData(self.model.index(nbr, 4), machine)
+        self.model.setData(self.model.index(nbr, 5), critere)
+        self.model.setData(self.model.index(nbr, 6), video)
+        count = self.model.rowCount()
+        print(count)
+        if (count == nbr+1):
+            self.model.submitAll()
+            QMessageBox.information(self, "Success","Add Successful" )
+            self.initialise()
+
         else:
-            self.db = QtSql.QSqlDatabase.database()
-            print(self.db.lastError().databaseText())
+            print(connexion.db.lastError().databaseText())
+
 
     def toListe(self):
         self.list = liste_op.Liste_Operation()

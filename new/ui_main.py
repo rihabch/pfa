@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_main.ui'
 #
-# Created: Tue Jun  9 18:14:38 2015
+# Created: Thu Jun 11 16:30:49 2015
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,9 +12,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(805, 582)
+        MainWindow.resize(805, 516)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.picture = QtWidgets.QLabel(self.centralwidget)
+        self.picture.setGeometry(QtCore.QRect(-10, -140, 821, 741))
+        self.picture.setText("")
+        self.picture.setPixmap(QtGui.QPixmap("../pics/pic1.jpg"))
+        self.picture.setObjectName("picture")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 805, 25))
@@ -25,10 +30,6 @@ class Ui_MainWindow(object):
         self.menuGestion_Operations.setObjectName("menuGestion_Operations")
         self.menu_quilibrage = QtWidgets.QMenu(self.menubar)
         self.menu_quilibrage.setObjectName("menu_quilibrage")
-        self.menuStatistiqus = QtWidgets.QMenu(self.menubar)
-        self.menuStatistiqus.setObjectName("menuStatistiqus")
-        self.menuHome = QtWidgets.QMenu(self.menubar)
-        self.menuHome.setObjectName("menuHome")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -52,11 +53,9 @@ class Ui_MainWindow(object):
         self.menuGestion_Operations.addAction(self.Details_Operation)
         self.menu_quilibrage.addAction(self.Creer_equilibrage)
         self.menu_quilibrage.addAction(self.Liste_equilibrage)
-        self.menubar.addAction(self.menuHome.menuAction())
         self.menubar.addAction(self.menuGestion_Employes.menuAction())
         self.menubar.addAction(self.menuGestion_Operations.menuAction())
         self.menubar.addAction(self.menu_quilibrage.menuAction())
-        self.menubar.addAction(self.menuStatistiqus.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -67,8 +66,6 @@ class Ui_MainWindow(object):
         self.menuGestion_Employes.setTitle(_translate("MainWindow", "Gestion Employés"))
         self.menuGestion_Operations.setTitle(_translate("MainWindow", "Gestion Opérations"))
         self.menu_quilibrage.setTitle(_translate("MainWindow", "Équilibrage"))
-        self.menuStatistiqus.setTitle(_translate("MainWindow", "Consulter Statistiques"))
-        self.menuHome.setTitle(_translate("MainWindow", "Accueil"))
         self.Liste_Employes.setText(_translate("MainWindow", "Liste Employés"))
         self.Competences.setText(_translate("MainWindow", "Compétences"))
         self.Details_Gamme.setText(_translate("MainWindow", "Détails Gamme"))

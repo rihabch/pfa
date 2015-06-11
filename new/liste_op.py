@@ -1,7 +1,7 @@
 __author__ = 'imen'
 
 from ui_liste_op import Ui_Liste_Op
-import ajouter_op
+from ajouter_op import Ajouter_Operation
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtSql, QtCore, QtWidgets
 
@@ -65,7 +65,7 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
             self.fill(self.model)
 
     def toAdd(self):
-        self.ajout = ajouter_op.Ajouter_Operation()
+        self.ajout = Ajouter_Operation()
         self.ajout.show()
         self.close()
 
