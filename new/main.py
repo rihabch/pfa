@@ -17,8 +17,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MyApp, self).__init__()
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
-
-        # Configure l'interface utilisateur.
         self.setupUi(self)
 
 if __name__ == "__main__":
@@ -26,14 +24,13 @@ if __name__ == "__main__":
 
 
     #MainWindow = MyApp()
-
     connexion.connect()
     #MainWindow = Liste_Operation()
     #MainWindow = Liste_Employe()
-    MainWindow = Ajouter_Employe()
+    #MainWindow = Ajouter_Employe()
     #MainWindow = Liste_Competence()
     #MainWindow = Login()
-
+    MainWindow = Ajout_Competence()
     MainWindow.show()
-    connexion.connect()
+    #connexion.connect()
     sys.exit(app.exec_())
