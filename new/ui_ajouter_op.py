@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Ajouter_Op(object):
     def setupUi(self, Form):
-        Form.setObjectName("Ajouter des Operations")
+        Form.setObjectName("Ajouter des Opérations")
         Form.resize(785, 515)
         self.horizontalLayoutWidget_9 = QtWidgets.QWidget(Form)
         self.horizontalLayoutWidget_9.setGeometry(QtCore.QRect(210, 340, 311, 31))
@@ -28,7 +28,7 @@ class Ui_Ajouter_Op(object):
         self.annuler_op_aj.setObjectName("annuler_op_aj")
         self.horizontalLayout_8.addWidget(self.annuler_op_aj)
         self.namepage_ajout_op = QtWidgets.QLabel(Form)
-        self.namepage_ajout_op.setGeometry(QtCore.QRect(0, 30, 131, 17))
+        self.namepage_ajout_op.setGeometry(QtCore.QRect(275, 30, 450, 40))
         self.namepage_ajout_op.setObjectName("namepage_ajout_op")
         self.formLayoutWidget_2 = QtWidgets.QWidget(Form)
         self.formLayoutWidget_2.setGeometry(QtCore.QRect(190, 90, 371, 211))
@@ -79,19 +79,20 @@ class Ui_Ajouter_Op(object):
         self.toolButton.setObjectName("toolButton")
         self.horizontalLayout.addWidget(self.toolButton)
         self.formLayout_2.setLayout(5, QtWidgets.QFormLayout.FieldRole, self.horizontalLayout)
-        self.initialiser_op = QtWidgets.QPushButton(self.horizontalLayoutWidget_9)
-        self.initialiser_op.setObjectName("initialiser_op")
-        self.horizontalLayout_8.addWidget(self.initialiser_op)
+        #self.initialiser_op = QtWidgets.QPushButton(self.horizontalLayoutWidget_9)
+        #self.initialiser_op.setObjectName("initialiser_op")
+        #self.horizontalLayout_8.addWidget(self.initialiser_op)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Ajouter des Operations", "Ajouter des Operations"))
+        Form.setWindowTitle(_translate("Ajouter des Operations", "Ajouter des Opérations"))
         self.ajouter_op_aj.setText(_translate("Form", "Enregistrer"))
         self.annuler_op_aj.setText(_translate("Form", "Annuler"))
-        self.namepage_ajout_op.setText(_translate("Form", "<html><head/><body><p><span style=\" color:#55aaff;\">Ajouter Opération</span></p></body></html>"))
+        #self.initialiser_op.setText(_translate("Form", "Initialiser"))
+        self.namepage_ajout_op.setText(_translate("Form", "<html><head/><body><h1><span style=\" color:#55aaff;\">Ajouter des Opérations</span></h1></body></html>"))
         self.labelcode_op_aj.setText(_translate("Form", "Code Opération:"))
         self.labelnom_op_aj.setText(_translate("Form", "Nom Opération:"))
         self.labelminutage_op_aj.setText(_translate("Form", "Minutage:"))

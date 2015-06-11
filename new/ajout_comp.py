@@ -14,7 +14,7 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.model.select()
         #    self.mat_cmp_aj.editingFinished.connect(lambda: self.add_info(123))
         self.annuler_cmp.clicked.connect(self.toListe)
-        self.initialiser_aj_cmp.clicked.connect(self.initialise)
+        #self.initialiser_aj_cmp.clicked.connect(self.initialise)
         self.enregistrer_cmp.clicked.connect(self.add)
 
     def add(self):

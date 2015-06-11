@@ -71,7 +71,7 @@ class Ui_Add_Employee(object):
         self.label_naiss_aj_emp.setObjectName("label_naiss_aj_emp")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_naiss_aj_emp)
         self.namepage_aj_emp = QtWidgets.QLabel(self.centralWidget)
-        self.namepage_aj_emp.setGeometry(QtCore.QRect(70, 10, 131, 17))
+        self.namepage_aj_emp.setGeometry(QtCore.QRect(200, 10, 300, 30))
         self.namepage_aj_emp.setObjectName("namepage_aj_emp")
         self.horizontalLayoutWidget_5 = QtWidgets.QWidget(self.centralWidget)
         self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(80, 400, 401, 31))
@@ -87,9 +87,9 @@ class Ui_Add_Employee(object):
         self.annuler_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
         self.annuler_emp.setObjectName("annuler_emp")
         self.horizontalLayout_6.addWidget(self.annuler_emp)
-        self.initialiser_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
-        self.initialiser_emp.setObjectName("initialiser_emp")
-        self.horizontalLayout_6.addWidget(self.initialiser_emp)
+        #self.initialiser_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        #self.initialiser_emp.setObjectName("initialiser_emp")
+        #self.horizontalLayout_6.addWidget(self.initialiser_emp)
 
         self.retranslateUi(MainWindow)
 
@@ -97,7 +97,7 @@ class Ui_Add_Employee(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("Ajouter Employe", "Ajouter Employe"))
+        MainWindow.setWindowTitle(_translate("Ajouter Employe", "Ajouter des Employés"))
         self.label_mat_aj_emp.setText(_translate("MainWindow", "Matricule :"))
         self.label_cin_aj_emp.setText(_translate("MainWindow", "CIN :"))
         self.label_nom_aj_emp.setText(_translate("MainWindow", "Nom :"))
@@ -106,8 +106,8 @@ class Ui_Add_Employee(object):
         self.label_photo_aj_emp.setText(_translate("MainWindow", "Photo :"))
         self.parcourir.setText(_translate("MainWindow", "..."))
         self.label_naiss_aj_emp.setText(_translate("MainWindow", "Date Naissance :"))
-        self.namepage_aj_emp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#55aaff;\">Ajouter Employés</span></p></body></html>"))
+        self.namepage_aj_emp.setText(_translate("MainWindow", "<html><head/><body><h1><span style=\" color:#55aaff;\">Ajouter des Employés</span></h1></body></html>"))
         self.enregistrer_emp.setText(_translate("MainWindow", "Enregistrer"))
         self.annuler_emp.setText(_translate("MainWindow", "Annuler"))
-        self.initialiser_emp.setText(_translate("MainWindow", "Initialiser"))
+        #self.initialiser_emp.setText(_translate("MainWindow", "Initialiser"))
 

@@ -11,8 +11,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Employee_List(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("Liste Employes")
-        MainWindow.resize(768, 602)
+        MainWindow.setObjectName("Liste des Employés")
+        MainWindow.resize(750, 600)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
         self.horizontalLayoutWidget_13 = QtWidgets.QWidget(self.centralWidget)
@@ -60,7 +60,7 @@ class Ui_Employee_List(object):
         self.table_emp.setGeometry(QtCore.QRect(60, 240, 611, 192))
         self.table_emp.setObjectName("table_emp")
         self.namepage_emp = QtWidgets.QLabel(self.centralWidget)
-        self.namepage_emp.setGeometry(QtCore.QRect(20, 0, 131, 17))
+        self.namepage_emp.setGeometry(QtCore.QRect(275, 10, 450, 30))
         self.namepage_emp.setObjectName("namepage_emp")
         self.gridLayoutWidget_2 = QtWidgets.QWidget(self.centralWidget)
         self.gridLayoutWidget_2.setGeometry(QtCore.QRect(70, 70, 621, 80))
@@ -114,7 +114,7 @@ class Ui_Employee_List(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("Liste Employes", "Liste Employes"))
+        MainWindow.setWindowTitle(_translate("Liste Employes", "Liste des Employés"))
         self.ajouter_emp.setText(_translate("MainWindow", "Ajouter"))
         self.importer_emp.setText(_translate("MainWindow", "Importer"))
         self.Modifier_emp.setText(_translate("MainWindow", "Modifier"))
@@ -122,7 +122,7 @@ class Ui_Employee_List(object):
         self.rechercher_emp.setText(_translate("MainWindow", "Rechercher"))
         self.initialiser_emp.setText(_translate("MainWindow", "Initialiser"))
         self.labelrecherche_emp.setText(_translate("MainWindow", "Rechercher par:"))
-        self.namepage_emp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#55aaff;\">Liste Employés</span></p></body></html>"))
+        self.namepage_emp.setText(_translate("MainWindow", "<html><head/><body><h1><span style=\" color:#55aaff;\">Liste des Employés</span></h1></body></html>"))
         #self.labelnaissance_emp.setText(_translate("MainWindow", "Date Naissance:"))
         self.labelmatricul_emp.setText(_translate("MainWindow", "Matricule:"))
         self.labelprenom_emp.setText(_translate("MainWindow", "Prénom :"))

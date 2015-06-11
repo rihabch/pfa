@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Liste_Competence(object):
     def setupUi(self, Form):
-        Form.setObjectName("Liste des Competences")
+        Form.setObjectName("Liste de Compétences")
         Form.resize(799, 593)
         self.horizontalLayoutWidget_16 = QtWidgets.QWidget(Form)
         self.horizontalLayoutWidget_16.setGeometry(QtCore.QRect(510, 180, 241, 31))
@@ -26,7 +26,7 @@ class Ui_Liste_Competence(object):
         self.rechercher_cmp.setObjectName("rechercher_cmp")
         self.horizontalLayout_13.addWidget(self.rechercher_cmp)
         self.namepage_cmp = QtWidgets.QLabel(Form)
-        self.namepage_cmp.setGeometry(QtCore.QRect(10, 70, 131, 17))
+        self.namepage_cmp.setGeometry(QtCore.QRect(275, 30, 450, 40))
         self.namepage_cmp.setObjectName("namepage_cmp")
         self.horizontalLayoutWidget_11 = QtWidgets.QWidget(Form)
         self.horizontalLayoutWidget_11.setGeometry(QtCore.QRect(60, 480, 691, 41))
@@ -88,10 +88,10 @@ class Ui_Liste_Competence(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Liste des Competences", "Liste des Competences"))
+        Form.setWindowTitle(_translate("Liste des Competences", "Liste de Compétences"))
         self.initialiser_cmp.setText(_translate("Form", "Initialiser"))
         self.rechercher_cmp.setText(_translate("Form", "Rechercher"))
-        self.namepage_cmp.setText(_translate("Form", "<html><head/><body><p><span style=\" color:#55aaff;\">Liste Competence</span></p></body></html>"))
+        self.namepage_cmp.setText(_translate("Form", "<html><head/><body><h1><span style=\" color:#55aaff;\">Liste de Compétences</span></h1></body></html>"))
         self.affecter_cmp.setText(_translate("Form", "Affecter"))
         self.modifier_cmp.setText(_translate("Form", "Modifier"))
         self.supprimer_cmp.setText(_translate("Form", "Supprimer"))

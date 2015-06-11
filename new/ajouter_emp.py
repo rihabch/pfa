@@ -17,7 +17,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.model.setTable('employe')
         self.model.select()
         self.annuler_emp.clicked.connect(self.toListe)
-        self.initialiser_emp.clicked.connect(self.initialise)
+        #self.initialiser_emp.clicked.connect(self.initialise)
         self.enregistrer_emp.clicked.connect(self.add)
 
     def add(self):

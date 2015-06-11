@@ -31,6 +31,7 @@
     </property>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -65,7 +66,6 @@
    <addaction name="menuGestion_Operations"/>
    <addaction name="menu_quilibrage"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="Liste_Employes">
    <property name="text">
     <string>Liste Employés</string>

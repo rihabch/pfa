@@ -45,7 +45,7 @@ class Login(QWidget, Ui_Login):
 
 
         else:
-            QMessageBox.information(self, "ERROR","Invalid Login or Password" )
+            QMessageBox.information(self, "ERROR","Code utilisateur ou Mot de passe non valide" )
             self.user.clear()
             self.password.clear()
 

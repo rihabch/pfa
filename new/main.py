@@ -9,6 +9,7 @@ from liste_employe import Liste_Employe
 from liste_op import Liste_Operation
 from login import Login
 from ajout_comp import Ajout_Competence
+from ajouter_op import Ajouter_Operation
 from myapp import MyApp
 import connexion
 
@@ -23,6 +24,7 @@ if __name__ == "__main__":
     #MainWindow = Liste_Competence()
     MainWindow = Login()
     #MainWindow = Ajout_Competence()
+    #MainWindow = Ajouter_Operation()
     MainWindow.show()
     #connexion.connect()
     sys.exit(app.exec_())

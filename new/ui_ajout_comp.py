@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Ajout_Competence(object):
     def setupUi(self, Form):
         Form.setObjectName("Ajouter Competence")
-        Form.resize(781, 873)
+        Form.resize(781, 480)
         self.formLayoutWidget_4 = QtWidgets.QWidget(Form)
         self.formLayoutWidget_4.setGeometry(QtCore.QRect(200, 160, 351, 217))
         self.formLayoutWidget_4.setObjectName("formLayoutWidget_4")
@@ -67,16 +67,16 @@ class Ui_Ajout_Competence(object):
         self.horizontalLayout_9.addWidget(self.enregistrer_cmp)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_9.addItem(spacerItem)
-        self.initialiser_aj_cmp = QtWidgets.QPushButton(self.horizontalLayoutWidget_12)
-        self.initialiser_aj_cmp.setObjectName("initialiser_aj_cmp")
-        self.horizontalLayout_9.addWidget(self.initialiser_aj_cmp)
+        #self.initialiser_aj_cmp = QtWidgets.QPushButton(self.horizontalLayoutWidget_12)
+        #self.initialiser_aj_cmp.setObjectName("initialiser_aj_cmp")
+        #self.horizontalLayout_9.addWidget(self.initialiser_aj_cmp)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_9.addItem(spacerItem1)
         self.annuler_cmp = QtWidgets.QPushButton(self.horizontalLayoutWidget_12)
         self.annuler_cmp.setObjectName("annuler_cmp")
         self.horizontalLayout_9.addWidget(self.annuler_cmp)
         self.name_page_comp_aj = QtWidgets.QLabel(Form)
-        self.name_page_comp_aj.setGeometry(QtCore.QRect(60, 60, 151, 17))
+        self.name_page_comp_aj.setGeometry(QtCore.QRect(230, 50, 350, 30))
         self.name_page_comp_aj.setObjectName("name_page_comp_aj")
 
         self.retranslateUi(Form)
@@ -84,7 +84,7 @@ class Ui_Ajout_Competence(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Ajouter Competence", "Ajouter Competence"))
+        Form.setWindowTitle(_translate("Ajouter Competence", "Ajouter des Compétences"))
         self.labelmat_cmp_aj.setText(_translate("Form", "Matricule:"))
         #self.labelnom_cmp_aj.setText(_translate("Form", "Nom :"))
         #self.labelprenom_cmp_aj.setText(_translate("Form", "Prénom : "))
@@ -92,7 +92,7 @@ class Ui_Ajout_Competence(object):
         self.labelretouche_cmp_aj.setText(_translate("Form", "Taux de Retouche :"))
         self.labelcode_cmp_aj.setText(_translate("Form", "Code Opération :"))
         self.enregistrer_cmp.setText(_translate("Form", "Enregistrer"))
-        self.initialiser_aj_cmp.setText(_translate("Form", "Initialiser"))
+        #self.initialiser_aj_cmp.setText(_translate("Form", "Initialiser"))
         self.annuler_cmp.setText(_translate("Form", "Annuler"))
-        self.name_page_comp_aj.setText(_translate("Form", "<html><head/><body><p><span style=\" color:#55aaff;\">Ajouter Competence</span></p></body></html>"))
+        self.name_page_comp_aj.setText(_translate("Form", "<html><head/><body><h1><span style=\" color:#55aaff;\">Ajouter des Compétences</span></h1></body></html>"))
 

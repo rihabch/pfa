@@ -21,13 +21,13 @@ class Ui_Login(object):
         self.password.setObjectName("password")
         self.password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.codelabel = QtWidgets.QLabel(Form)
-        self.codelabel.setGeometry(QtCore.QRect(60, 70, 66, 17))
+        self.codelabel.setGeometry(QtCore.QRect(45, 60, 200, 50))
         self.codelabel.setObjectName("codelabel")
         self.passwordlabel = QtWidgets.QLabel(Form)
-        self.passwordlabel.setGeometry(QtCore.QRect(55, 110, 101, 20))
+        self.passwordlabel.setGeometry(QtCore.QRect(45, 110, 101, 20))
         self.passwordlabel.setObjectName("passwordlabel")
         self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(70, 20, 141, 17))
+        self.label_3.setGeometry(QtCore.QRect(100, 15, 250, 40))
         self.label_3.setObjectName("label_3")
         self.login = QtWidgets.QPushButton(Form)
         self.login.setGeometry(QtCore.QRect(140, 180, 98, 27))
@@ -39,8 +39,8 @@ class Ui_Login(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Login", "Login"))
-        self.codelabel.setText(_translate("Form", "Code"))
+        self.codelabel.setText(_translate("Form", "Code d'Utilisateur"))
         self.passwordlabel.setText(_translate("Form", "Mot de Passe"))
-        self.label_3.setText(_translate("Form", "Page Connexion"))
+        self.label_3.setText(_translate("Form", "<html><head/><body><h2><span style=\" color:#55aaff;\">Page de Connexion</span></h2></body></html>"))
         self.login.setText(_translate("Form", "Login"))
 

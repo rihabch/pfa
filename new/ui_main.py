@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
+        MainWindow.setObjectName("Gestion d'un Atelier de Confection")
         MainWindow.resize(805, 516)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Gestion d'un Atelier de Confection"))
         self.menuGestion_Employes.setTitle(_translate("MainWindow", "Gestion Employés"))
         self.menuGestion_Operations.setTitle(_translate("MainWindow", "Gestion Opérations"))
         self.menu_quilibrage.setTitle(_translate("MainWindow", "Équilibrage"))

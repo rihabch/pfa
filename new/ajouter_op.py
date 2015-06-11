@@ -14,7 +14,7 @@ class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
         self.model.select()
         self.annuler_op_aj.clicked.connect(self.toListe)
         self.ajouter_op_aj.clicked.connect(self.add)
-        self.initialiser_op.clicked.connect(self.initialise)
+        #self.initialiser_op.clicked.connect(self.initialise)
 
     def initialise(self):
         self.code_op_aj.clear()

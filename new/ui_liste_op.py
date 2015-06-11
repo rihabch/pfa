@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Liste_Op(object):
     def setupUi(self, Form):
-        Form.setObjectName("Liste Des Operations")
+        Form.setObjectName("Liste des Opérations")
         Form.resize(756, 564)
         self.labelrecherche_op = QtWidgets.QLabel(Form)
         self.labelrecherche_op.setGeometry(QtCore.QRect(10, 40, 111, 17))
@@ -56,7 +56,7 @@ class Ui_Liste_Op(object):
         self.recherche_op.setObjectName("recherche_op")
         self.horizontalLayout_11.addWidget(self.recherche_op)
         self.namepage_liste_op = QtWidgets.QLabel(Form)
-        self.namepage_liste_op.setGeometry(QtCore.QRect(10, 10, 131, 17))
+        self.namepage_liste_op.setGeometry(QtCore.QRect(275, 10, 450, 30))
         self.namepage_liste_op.setObjectName("namepage_liste_op")
         self.horizontalLayoutWidget_4 = QtWidgets.QWidget(Form)
         self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(80, 460, 621, 31))
@@ -88,14 +88,14 @@ class Ui_Liste_Op(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Liste Des Operations", "Liste Des Operations"))
+        Form.setWindowTitle(_translate("Liste Des Operations", "Liste des Opérations"))
         self.labelrecherche_op.setText(_translate("Form", "Rechercher par: "))
         self.labelcode_op.setText(_translate("Form", "Code Opération:"))
         self.labelnom_op.setText(_translate("Form", "Nom Opération:"))
         self.labelmachine_op.setText(_translate("Form", "Machine: "))
         self.initialiser_op.setText(_translate("Form", "Initialiser"))
         self.recherche_op.setText(_translate("Form", "Rechercher"))
-        self.namepage_liste_op.setText(_translate("Form", "<html><head/><body><p><span style=\" color:#55aaff;\">Liste Opérations</span></p></body></html>"))
+        self.namepage_liste_op.setText(_translate("Form", "<html><head/><body><h1><span style=\" color:#55aaff;\">Liste des Opérations</span></h1></body></html>"))
         self.importer_op.setText(_translate("Form", "Importer"))
         self.ajouter_op.setText(_translate("Form", "Ajouter"))
         self.modifier_op.setText(_translate("Form", "Modifier"))
