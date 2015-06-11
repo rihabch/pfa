@@ -12,9 +12,9 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setTable('employe')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
         self.table_emp.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.table_emp.setModel(self.model)
         self.model.select()
-        print(self.model.select)
-        self.fill()
+        self.fill(self.model)
         self.initialiser_emp.clicked.connect(self.initialise)
         self.rechercher_emp.clicked.connect(self.search)
         self.ajouter_emp.clicked.connect(self.toAdd)
@@ -25,25 +25,28 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         print(session.passe)
 
 
-    def fill(self):
-        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "CIN")
-        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Matricule")
-        self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Code Utilisateur")
-        self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Nom")
-        self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Prenom")
-        self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Date Embauche")
-        self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Image")
-        self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Presence")
-        self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
-        self.table_emp.setModel(self.model)
+    def fill(self,model):
+        model.setHeaderData(0, QtCore.Qt.Horizontal, "CIN")
+        model.setHeaderData(1, QtCore.Qt.Horizontal, "Matricule")
+        model.setHeaderData(2, QtCore.Qt.Horizontal, "Code Utilisateur")
+        model.setHeaderData(3, QtCore.Qt.Horizontal, "Nom")
+        model.setHeaderData(4, QtCore.Qt.Horizontal, "Prenom")
+        model.setHeaderData(5, QtCore.Qt.Horizontal, "Date Embauche")
+        model.setHeaderData(6, QtCore.Qt.Horizontal, "Image")
+        model.setHeaderData(7, QtCore.Qt.Horizontal, "Presence")
+        model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
+        self.table_emp.setModel(model)
 
     def initialise(self):
         self.cin_emp.clear()
         self.mat_emp.clear()
         self.nom_emp.clear()
         self.prenom_emp.clear()
-        self.model.select()
-        self.fill()
+        self.model2 = QtSql.QSqlRelationalTableModel()
+        self.model2.setTable('employe')
+        self.table_emp.setModel(self.model2)
+        self.model2.select()
+        self.fill(self.model2)
         #self.date_emb_emp.setDateTime(QtCore.QDateTime.currentDateTime())
         #self.date_nass_emp.setDateTime(QtCore.QDateTime.currentDateTime())
 
@@ -71,18 +74,30 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setFilter(critere)
         self.model.select()
         print(self.model.rowCount())
-        if (self.model.rowCount()== 1):
+        if (self.model.rowCount()>= 1):
             print('ok search')
-            self.fill()
+            self.fill(self.model)
 
 
     def edit(self):
-        self.table_emp.setModel(self.model)
-        row = self.model.rowCount()
-        self.model.insertRow(row)
-        if self.model.submitAll():
-            print("ok edit")
-            QMessageBox.information(self, "Success","Edit Successful" )
+        reply = QtWidgets.QMessageBox.question(self, "Demande de modification","Êtes-vous sûr de vouloir modifier l'employé ?",
+        QtWidgets.QMessageBox.Yes,
+        QtWidgets.QMessageBox.No)
+
+        if reply == QtWidgets.QMessageBox.Yes:
+            row = self.model.rowCount()
+            selection = QtCore.QItemSelectionModel(self.model)
+            index = selection.currentIndex()
+
+            if  self.model.insertRow(row,index):
+                self.model.submitAll()
+                print("ok edit")
+                QMessageBox.information(self, "Succès","Modification avec succès")
+                self.initialise()
+            else:
+                QMessageBox.information(self, "Erreur","Erreur modification attribut")
+        else:
+                reply.close(self)
 
     def toAdd(self):
         self.ajout = ajouter_emp.Ajouter_Employe()
@@ -91,10 +106,27 @@ class Liste_Employe(QWidget, Ui_Employee_List):
 
 
     def delete_row(self):
-        l = self.table_emp.currentIndex().row()
-        self.model.removeRows(l, 1, self.table_emp.currentIndex())
-        if (self.model.submitAll()):
-            print("ok suppression")
-            QMessageBox.information(self, "Success","Delete Successful" )
-            self.model.select()
-            self.fill()
+
+            reply = QtWidgets.QMessageBox.question(self, "Demande de suppression","Êtes-vous sûr de vouloir supprimer l'employé ?",
+            QtWidgets.QMessageBox.Yes,
+            QtWidgets.QMessageBox.No)
+
+            if reply == QtWidgets.QMessageBox.Yes:
+                l = self.table_emp.currentIndex().row()
+                print("ligne")
+                print(l)
+                selection = QtCore.QItemSelectionModel(self.model)
+                index = selection.currentIndex()
+                if self.model.removeRows(l, 1, index):
+                    self.model.submitAll()
+                    print("ok suppression")
+                    QMessageBox.information(self, "Succès","Suppression avec succès")
+                    self.initialise()
+
+                else:
+                    QMessageBox.information(self, "Erreur","Erreur suppression attribut")
+
+            else:
+                reply.close(self)
+
+
