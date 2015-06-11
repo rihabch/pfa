@@ -35,7 +35,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.model.insertRow(nbr)
         self.model.setData(self.model.index(nbr - 1, 0), cin_employe)
         self.model.setData(self.model.index(nbr - 1, 1), matricule_employe)
-        self.model.setData(self.model.index(nbr - 1, 2), 1)
+        self.model.setData(self.model.index(nbr - 1, 2), 'admin_02')
         self.model.setData(self.model.index(nbr - 1, 3), nom_employe)
         self.model.setData(self.model.index(nbr - 1, 4), prenom_employe)
         self.model.setData(self.model.index(nbr - 1, 5), date_embauche)
@@ -71,3 +71,8 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         filename, filter = QtGui.QFileDialog.getOpenFileName(parent=self, caption='Open file', dir=os.getenv("HOME"))
         print( 'filename:', filename)
         print ('filter:', filter)
+
+    def toListe(self):
+         self.liste = Liste_Employe()
+         self.liste.show()
+         self.close()
