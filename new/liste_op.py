@@ -3,7 +3,7 @@ __author__ = 'imen'
 from ui_liste_op import Ui_Liste_Op
 import ajouter_op
 from PyQt5.QtWidgets import QWidget
-from PyQt5 import QtSql, QtCore
+from PyQt5 import QtSql, QtCore, QtWidgets
 
 
 class Liste_Operation(QWidget, Ui_Liste_Op):
@@ -17,6 +17,7 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         self.initialiser_op.clicked.connect(self.initialise)
         self.recherche_op.clicked.connect(self.search)
         self.ajouter_op.clicked.connect(self.toAdd)
+        self.supprimer_op.clicked.connect(self.delete_row)
 
     def fill(self):
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Code Operation")
@@ -45,10 +46,44 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
 
 
     def edit(self):
-        self.table_emp.setModel(self.model)
-        row = self.model.rowCount()
-        self.model.insertRow(row)
-        if self.model.submitAll():
-            print("ok edit")
-            QMessageBox.information(self, "Success","Edit Successful" )
+        reply = QtWidgets.QMessageBox.question(self, "Demande de modification","Êtes-vous sûr de vouloir modifier l'employé ?",
+        QtWidgets.QMessageBox.Yes,
+        QtWidgets.QMessageBox.No)
 
+        if reply == QtWidgets.QMessageBox.Yes:
+            row = self.model.rowCount()
+            selection = QtCore.QItemSelectionModel(self.model)
+            index = selection.currentIndex()
+
+            if  self.model.insertRow(row,index):
+                self.model.submitAll()
+                print("ok edit")
+                QMessageBox.information(self, "Succès","Modification avec succès")
+                self.initialise()
+            else:
+                QMessageBox.information(self, "Erreur","Erreur modification attribut")
+        else:
+                reply.close(self)
+
+
+    def delete_row(self):
+
+        reply = QtWidgets.QMessageBox.question(self, "Demande de suppression","Êtes-vous sûr de vouloir supprimer cette opération ?",QtWidgets.QMessageBox.Yes,QtWidgets.QMessageBox.No)
+
+        if reply == QtWidgets.QMessageBox.Yes:
+            l = self.table_emp.currentIndex().row()
+            print("ligne")
+            print(l)
+            selection = QtCore.QItemSelectionModel(self.model)
+            index = selection.currentIndex()
+            if self.model.removeRows(l, 1, index):
+                self.model.submitAll()
+                print("ok suppression")
+                QMessageBox.information(self, "Succès","Suppression avec succès")
+                self.initialise()
+
+            else:
+                QMessageBox.information(self, "Erreur","Erreur suppression attribut")
+
+        else:
+            reply.close(self)

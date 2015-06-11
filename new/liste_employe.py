@@ -107,9 +107,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
 
     def delete_row(self):
 
-            reply = QtWidgets.QMessageBox.question(self, "Demande de suppression","Êtes-vous sûr de vouloir supprimer l'employé ?",
-            QtWidgets.QMessageBox.Yes,
-            QtWidgets.QMessageBox.No)
+            reply = QtWidgets.QMessageBox.question(self, "Demande de suppression","Êtes-vous sûr de vouloir supprimer l'employé ?",QtWidgets.QMessageBox.Yes,QtWidgets.QMessageBox.No)
 
             if reply == QtWidgets.QMessageBox.Yes:
                 l = self.table_emp.currentIndex().row()

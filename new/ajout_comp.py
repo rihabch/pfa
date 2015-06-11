@@ -12,54 +12,55 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('competence')
         self.model.select()
-        #matricule= self.cin_cmp_aj.text()
-        #if not len(matricule) == 0:
-        #    print("before enter matricule")
-        #    print(matricule)
-        #    self.cin_cmp_aj.editingFinished.connect(lambda: self.add_info(123))
         self.annuler_cmp.clicked.connect(self.toListe)
         self.initialiser_aj_cmp.clicked.connect(self.initialise)
         self.enregistrer_cmp.clicked.connect(self.add)
 
     def add(self):
-        matricule= self.cin_cmp_aj.text()
+        matricule= self.mat_cmp_aj.text()
         #nom_employe = self.nom_cmp_aj.text()
         #prenom_employe = self.prenom_cmp_aj.text()
-        #operation = self.op_cmp_aj.text()
+        operation = self.op_cmp_aj.text()
         allure = self.allure_cmp_aj.text()
         retouche = self.retouche_cmp_aj.text()
-
-        #self.cin_cmp_aj.editingChanged.connect(self.add_info(matricule))
-        validator_int = QtGui.QIntValidator(100000,999999,self)
-        self.cin_cmp_aj.setValidator(validator_int)
-        validator_float = QtGui.QDoubleValidator(self)
-        self.retouche_cmp_aj.setValidator(validator_float)
-        self.allure_cmp_aj.setValidator(validator_float)
+        validator_int = QtGui.QIntValidator(0,100,self)
+        int_expreg = QtCore.QRegExp('[0-9]+')
+        int_validator = QtGui.QRegExpValidator(int_expreg,self.mat_cmp_aj)
+        self.mat_cmp_aj.setValidator(int_validator)
+        self.retouche_cmp_aj.setValidator(validator_int)
+        self.allure_cmp_aj.setValidator(validator_int)
         if not (self.allure_cmp_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Allure non valide")
-        if not (self.cin_cmp_aj.hasAcceptableInput()):
+        if not (self.mat_cmp_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Matricule non valide")
         if not (self.retouche_cmp_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Retouche non valide")
-        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.cin_cmp_aj.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
-            allureint = int(self.allure_cmp_aj.text())
-            retoucheint = int(self.retouche_cmp_aj.text())
-            competence = retoucheint*allureint
+        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.mat_cmp_aj.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
+            print("verifié")
+            if int(retouche) > 8:
+                pour_comp = int(allure) - int(retouche)
+            else:
+                pour_comp = int(allure)
+            competence = self.set_comp(pour_comp)
+            print("competence")
+            print(competence)
             nbr = self.model.rowCount()
             self.model.insertRow(nbr)
-            self.model.setData(self.model.index(nbr - 1, 0), matricule)
-            self.model.setData(self.model.index(nbr - 1, 1), '1')
-            self.model.setData(self.model.index(nbr - 1, 2), '1')
-            self.model.setData(self.model.index(nbr - 1, 3), allure)
-            self.model.setData(self.model.index(nbr - 1, 4), retouche)
+            self.model.setData(self.model.index(nbr - 1, 0), int(matricule))
+            self.model.setData(self.model.index(nbr - 1, 1), 'admin_01')
+            self.model.setData(self.model.index(nbr - 1, 2), operation)
+            self.model.setData(self.model.index(nbr - 1, 3), int(allure))
+            self.model.setData(self.model.index(nbr - 1, 4), int(retouche))
             self.model.setData(self.model.index(nbr - 1, 5), competence)
             self.model.setData(self.model.index(nbr - 1, 6), QtCore.QDateTime.currentDateTime())
+
             if self.model.submitAll():
-                QMessageBox.information(self, "Success","Add Successful" )
+                QMessageBox.information(self, "Succes","Ajout avec Succes" )
 
             else:
                 self.db = QtSql.QSqlDatabase.database()
-                print(self.db.lastError().databaseText())
+                QMessageBox.information(self, "Echec","Echec Ajout" )
+                print (self.db.lastError().text())
 
     def initialise(self):
         self.mat_cmp_aj.clear()
@@ -75,18 +76,7 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.list.show()
         self.close()
 
-    def check_state(self, *args, **kwargs):
-        sender = self.sender()
-        validator = sender.validator()
-        state = validator.validate(sender.text(), 0)[0]
-        if state == QtGui.QValidator.Acceptable:
-            color = '#c4df9b' # green
-        else:
-            color = '#f6989d' # red
-            sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
-
-
-    def add_info(self,matricule):
+    def add_info(self,matricule, prenom_employe):
         self.model2 = QtSql.QSqlRelationalTableModel()
         self.model2.setTable('employe')
         critere ="matricule = %s" %(matricule)
@@ -96,6 +86,8 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         if (self.model2.rowCount() == 1):
             print('ok add_info')
             record = self.model.record(0)
+            self.prenom_cmp_aj.insert(prenom_employe)
+            self.prenom_cmp_aj.insert(prenom_employe)
             nom_employe = record.value("nom")
             prenom_employe = record.value("prenom")
             #index = self.model2.fieldIndex("nom")
@@ -109,5 +101,15 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
             self.nom_cmp_aj.insert(nom_employe)
             self.prenom_cmp_aj.insert(prenom_employe)
 
-
+    def set_comp(self,com):
+        if com < 20:
+            return 1
+        elif com< 40:
+            return 2
+        elif com < 60:
+            return 3
+        elif com < 80:
+            return 4
+        else:
+            return 5
 

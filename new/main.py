@@ -30,8 +30,8 @@ if __name__ == "__main__":
     connexion.connect()
     #MainWindow = Liste_Operation()
     #MainWindow = Liste_Employe()
-    MainWindow = Ajouter_Employe()
-    #MainWindow = Liste_Competence()
+    #MainWindow = Ajouter_Employe()
+    MainWindow = Liste_Competence()
     #MainWindow = Login()
 
     MainWindow.show()

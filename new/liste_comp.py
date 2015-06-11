@@ -3,7 +3,7 @@ __author__ = 'imen'
 from ui_liste_comp import Ui_Liste_Competence
 import ajout_comp
 from PyQt5.QtWidgets import QWidget, QMessageBox
-from PyQt5 import QtSql, QtCore
+from PyQt5 import QtSql, QtCore, QtWidgets
 
 class Liste_Competence(QWidget, Ui_Liste_Competence):
     def __init__(self):
@@ -18,6 +18,7 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
         #self.rechercher_cmp.clicked.connect(self.search)
         self.affecter_cmp.clicked.connect(self.toAdd)
         self.modifier_cmp.clicked.connect(self.edit)
+        self.supprimer_cmp.clicked.connect(self.delete_row)
 
 
     def fill(self):
@@ -37,15 +38,50 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
 
 
     def edit(self):
-        self.table_emp.setModel(self.model)
-        row = self.model.rowCount()
-        self.model.insertRow(row)
-        if self.model.submitAll():
-            print("ok edit")
-            QMessageBox.information(self, "Success","Edit Successful" )
+        reply = QtWidgets.QMessageBox.question(self, "Demande de modification","Êtes-vous sûr de vouloir modifier la compétence ?",
+        QtWidgets.QMessageBox.Yes,
+        QtWidgets.QMessageBox.No)
+
+        if reply == QtWidgets.QMessageBox.Yes:
+            row = self.model.rowCount()
+            selection = QtCore.QItemSelectionModel(self.model)
+            index = selection.currentIndex()
+
+            if  self.model.insertRow(row,index):
+                self.model.submitAll()
+                print("ok edit")
+                QMessageBox.information(self, "Succès","Modification avec succès")
+                self.initialise()
+            else:
+                QMessageBox.information(self, "Erreur","Erreur modification attribut")
+        else:
+                reply.close(self)
 
 
     def toAdd(self):
         self.ajout = ajout_comp.Ajout_Competence()
         self.ajout.show()
         self.close()
+
+
+    def delete_row(self):
+
+        reply = QtWidgets.QMessageBox.question(self, "Demande de suppression","Êtes-vous sûr de vouloir supprimer cette compétence ?",QtWidgets.QMessageBox.Yes,QtWidgets.QMessageBox.No)
+
+        if reply == QtWidgets.QMessageBox.Yes:
+            l = self.table_emp.currentIndex().row()
+            print("ligne")
+            print(l)
+            selection = QtCore.QItemSelectionModel(self.model)
+            index = selection.currentIndex()
+            if self.model.removeRows(l, 1, index):
+                self.model.submitAll()
+                print("ok suppression")
+                QMessageBox.information(self, "Succès","Suppression avec succès")
+                self.initialise()
+
+            else:
+                QMessageBox.information(self, "Erreur","Erreur suppression attribut")
+
+        else:
+            reply.close(self)

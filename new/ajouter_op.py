@@ -43,7 +43,7 @@ class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
         self.model.setData(self.model.index(nbr - 1, 6), video)
 
         if self.model.submitAll():
-            QMessageBox.information(self, "Success", "Add Successful")
+            QMessageBox.information(self, "Succès", "Ajout avec Succès")
         else:
             self.db = QtSql.QSqlDatabase.database()
             print(self.db.lastError().databaseText())
