@@ -28,38 +28,38 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         #operation = self.op_cmp_aj.text()
         allure = self.allure_cmp_aj.text()
         retouche = self.retouche_cmp_aj.text()
-        competence = retouche*allure
-        self.mat_validation(matricule)
 
-        #self.mat_cmp_anj.editingChanged.connect(self.add_info(matricule))
-        #validator_int = QtGui.QIntValidator(matricule)
-        #matricule.setValidator(validator_int)
-        #validator_float = QtGui.QDoubleValidator(retouche,allure)
-        #retouche.setValidator(validator_float)
-       # allure.setValidator(validator_float)
-       # matricule.textChanged.connect(self.check_state)
-       # matricule.textChanged.emit(matricule.text())
-       # retouche.textChanged.connect(self.check_state)
-       # retouche.textChanged.emit(retouche.text())
-       # allure.textChanged.connect(self.check_state)
-        #allure.textChanged.emit(allure.text())
+        #self.cin_cmp_aj.editingChanged.connect(self.add_info(matricule))
+        validator_int = QtGui.QIntValidator(100000,999999,self)
+        self.cin_cmp_aj.setValidator(validator_int)
+        validator_float = QtGui.QDoubleValidator(self)
+        self.retouche_cmp_aj.setValidator(validator_float)
+        self.allure_cmp_aj.setValidator(validator_float)
+        if not (self.allure_cmp_aj.hasAcceptableInput()):
+            QMessageBox.information(self, "Erreur","Allure non valide")
+        if not (self.cin_cmp_aj.hasAcceptableInput()):
+            QMessageBox.information(self, "Erreur","Matricule non valide")
+        if not (self.retouche_cmp_aj.hasAcceptableInput()):
+            QMessageBox.information(self, "Erreur","Retouche non valide")
+        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.cin_cmp_aj.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
+            allureint = int(self.allure_cmp_aj.text())
+            retoucheint = int(self.retouche_cmp_aj.text())
+            competence = retoucheint*allureint
+            nbr = self.model.rowCount()
+            self.model.insertRow(nbr)
+            self.model.setData(self.model.index(nbr - 1, 0), matricule)
+            self.model.setData(self.model.index(nbr - 1, 1), '1')
+            self.model.setData(self.model.index(nbr - 1, 2), '1')
+            self.model.setData(self.model.index(nbr - 1, 3), allure)
+            self.model.setData(self.model.index(nbr - 1, 4), retouche)
+            self.model.setData(self.model.index(nbr - 1, 5), competence)
+            self.model.setData(self.model.index(nbr - 1, 6), QtCore.QDateTime.currentDateTime())
+            if self.model.submitAll():
+                QMessageBox.information(self, "Success","Add Successful" )
 
-
-        nbr = self.model.rowCount()
-        self.model.insertRow(nbr)
-        self.model.setData(self.model.index(nbr - 1, 0), matricule)
-        self.model.setData(self.model.index(nbr - 1, 1), '1')
-        self.model.setData(self.model.index(nbr - 1, 2), '1')
-        self.model.setData(self.model.index(nbr - 1, 3), allure)
-        self.model.setData(self.model.index(nbr - 1, 4), retouche)
-        self.model.setData(self.model.index(nbr - 1, 5), competence)
-        self.model.setData(self.model.index(nbr - 1, 6), QtCore.QDateTime.currentDateTime())
-        if self.model.submitAll():
-           QMessageBox.information(self, "Success","Add Successful" )
-
-        else:
-            self.db = QtSql.QSqlDatabase.database()
-            print(self.db.lastError().databaseText())
+            else:
+                self.db = QtSql.QSqlDatabase.database()
+                print(self.db.lastError().databaseText())
 
     def initialise(self):
         self.mat_cmp_aj.clear()
@@ -75,25 +75,15 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.list.show()
         self.close()
 
-    def mat_validation(self,matricule):
-        if matricule.isDigit():
-            if matricule>10000000 and matricule<99999999:
-                return True
-            else:
-                return False
+    def check_state(self, *args, **kwargs):
+        sender = self.sender()
+        validator = sender.validator()
+        state = validator.validate(sender.text(), 0)[0]
+        if state == QtGui.QValidator.Acceptable:
+            color = '#c4df9b' # green
         else:
-            return False
-
-    #def check_state(self, *args, **kwargs):
-     #   sender = self.sender()
-      #  validator = sender.validator()
-    # state = validator.validate(sender.text(), 0)[0]
-     #   if state == QtGui.QValidator.Acceptable:
-      #      color = '#c4df9b' # green
-       # else:
-    #    color = '#f6989d' # red
-     #   sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
-
+            color = '#f6989d' # red
+            sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
 
 
     def add_info(self,matricule):
@@ -118,7 +108,6 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
             print(prenom_employe)
             self.nom_cmp_aj.insert(nom_employe)
             self.prenom_cmp_aj.insert(prenom_employe)
-
 
 
 
