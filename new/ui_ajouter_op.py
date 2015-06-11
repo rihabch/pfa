@@ -79,6 +79,9 @@ class Ui_Ajouter_Op(object):
         self.toolButton.setObjectName("toolButton")
         self.horizontalLayout.addWidget(self.toolButton)
         self.formLayout_2.setLayout(5, QtWidgets.QFormLayout.FieldRole, self.horizontalLayout)
+        self.initialiser_op = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.initialiser_op.setObjectName("initialiser_op")
+        self.horizontalLayout_6.addWidget(self.initialiser_op)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)

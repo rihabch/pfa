@@ -18,26 +18,26 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
 
     def add(self):
         matricule= self.mat_cmp_aj.text()
-
-        self.mat_cmp_anj.editingChanged.connect(self.add_info(matricule))
         #nom_employe = self.nom_cmp_aj.text()
         #prenom_employe = self.prenom_cmp_aj.text()
         #operation = self.op_cmp_aj.text()
         allure = self.allure_cmp_aj.text()
         retouche = self.retouche_cmp_aj.text()
         competence = retouche*allure
+        self.mat_validation(matricule)
 
-        validator_int = QtGui.QIntValidator(matricule)
-        matricule.setValidator(validator_int)
-        validator_float = QtGui.QDoubleValidator(retouche,allure)
-        retouche.setValidator(validator_float)
-        allure.setValidator(validator_float)
-        matricule.textChanged.connect(self.check_state)
-        matricule.textChanged.emit(matricule.text())
-        retouche.textChanged.connect(self.check_state)
-        retouche.textChanged.emit(retouche.text())
-        allure.textChanged.connect(self.check_state)
-        allure.textChanged.emit(allure.text())
+        #self.mat_cmp_anj.editingChanged.connect(self.add_info(matricule))
+        #validator_int = QtGui.QIntValidator(matricule)
+        #matricule.setValidator(validator_int)
+        #validator_float = QtGui.QDoubleValidator(retouche,allure)
+        #retouche.setValidator(validator_float)
+       # allure.setValidator(validator_float)
+       # matricule.textChanged.connect(self.check_state)
+       # matricule.textChanged.emit(matricule.text())
+       # retouche.textChanged.connect(self.check_state)
+       # retouche.textChanged.emit(retouche.text())
+       # allure.textChanged.connect(self.check_state)
+        #allure.textChanged.emit(allure.text())
 
 
         nbr = self.model.rowCount()
@@ -70,15 +70,15 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.list.show()
         self.close()
 
-    def check_state(self, *args, **kwargs):
-        sender = self.sender()
-        validator = sender.validator()
-        state = validator.validate(sender.text(), 0)[0]
-        if state == QtGui.QValidator.Acceptable:
-            color = '#c4df9b' # green
-        else:
-            color = '#f6989d' # red
-        sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
+    #def check_state(self, *args, **kwargs):
+     #   sender = self.sender()
+      #  validator = sender.validator()
+    # state = validator.validate(sender.text(), 0)[0]
+     #   if state == QtGui.QValidator.Acceptable:
+      #      color = '#c4df9b' # green
+       # else:
+    #    color = '#f6989d' # red
+     #   sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
 
 
     def add_info(self,matricule):
@@ -96,3 +96,15 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
             prenom_employe = self.prenom_cmp_aj.text()
             self.nom_cmp_aj.insert(nom_employe)
             self.prenom_cmp_aj.insert(prenom_employe)
+
+
+    def mat_validation(self,matricule):
+        if matricule.isDigit():
+            if matricule>10000000 and matricule<99999999:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+

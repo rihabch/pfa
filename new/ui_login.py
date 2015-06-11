@@ -19,7 +19,7 @@ class Ui_Login(object):
         self.password = QtWidgets.QLineEdit(Form)
         self.password.setGeometry(QtCore.QRect(190, 110, 113, 27))
         self.password.setObjectName("password")
-       # self.password.setEchoMode(Password)
+        self.password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.codelabel = QtWidgets.QLabel(Form)
         self.codelabel.setGeometry(QtCore.QRect(60, 70, 66, 17))
         self.codelabel.setObjectName("codelabel")

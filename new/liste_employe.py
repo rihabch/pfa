@@ -1,7 +1,7 @@
 from ui_liste_emp import Ui_Employee_List
 import ajouter_emp
 from PyQt5.QtWidgets import QWidget, QMessageBox
-from PyQt5 import QtSql, QtCore
+from PyQt5 import QtSql, QtCore, QtWidgets
 from session import Session
 
 class Liste_Employe(QWidget, Ui_Employee_List):
@@ -11,12 +11,15 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('employe')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
+        self.table_emp.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.model.select()
+        print(self.model.select)
         self.fill()
         self.initialiser_emp.clicked.connect(self.initialise)
         self.rechercher_emp.clicked.connect(self.search)
         self.ajouter_emp.clicked.connect(self.toAdd)
         self.Modifier_emp.clicked.connect(self.edit)
+        self.supprimer_emp.clicked.connect(self.delete_row)
         session = Session()
         print("login admin: ")
         print(session.passe)
@@ -32,8 +35,6 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Image")
         self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Presence")
         self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
-        print("row count")
-        print (self.model.rowCount())
         self.table_emp.setModel(self.model)
 
     def initialise(self):
@@ -53,12 +54,6 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         prenom_employe = self.prenom_emp.text()
         #date_embauche = self.date_emb_emp.date().toString("yyyy-MM-dd")
         #date_naissance = self.date_nass_emp.date().toString("yyyy-MM-dd")
-        print(cin_employe)
-        print(matricule_employe)
-        print(nom_employe)
-        print(prenom_employe)
-        #print(date_embauche)
-        #print(date_naissance)
         critere =""
         if not len(cin_employe) == 0:
             critere += " cin_emp = %s" %(cin_employe)
@@ -94,9 +89,12 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.ajout.show()
         self.close()
 
+
     def delete_row(self):
-        self.model.setEditStrategy(self.model.OnManualSubmit)
-        self.model.select()
-        self.model
-        #tv = QTableView(mw)
-        #tv.setModel(model)
+        l = self.table_emp.currentIndex().row()
+        self.model.removeRows(l, 1, self.table_emp.currentIndex())
+        if (self.model.submitAll()):
+            print("ok suppression")
+            QMessageBox.information(self, "Success","Delete Successful" )
+            self.model.select()
+            self.fill()
