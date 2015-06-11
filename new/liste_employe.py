@@ -12,8 +12,8 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setTable('employe')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
         self.table_emp.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        print(self.model.select())
         self.model.select()
+        print(self.model.select)
         self.fill()
         self.initialiser_emp.clicked.connect(self.initialise)
         self.rechercher_emp.clicked.connect(self.search)
@@ -35,8 +35,6 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Image")
         self.model.setHeaderData(7, QtCore.Qt.Horizontal, "Presence")
         self.model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
-        print("row count")
-        print (self.model.rowCount())
         self.table_emp.setModel(self.model)
 
     def initialise(self):
@@ -56,12 +54,6 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         prenom_employe = self.prenom_emp.text()
         #date_embauche = self.date_emb_emp.date().toString("yyyy-MM-dd")
         #date_naissance = self.date_nass_emp.date().toString("yyyy-MM-dd")
-        print(cin_employe)
-        print(matricule_employe)
-        print(nom_employe)
-        print(prenom_employe)
-        #print(date_embauche)
-        #print(date_naissance)
         critere =""
         if not len(cin_employe) == 0:
             critere += " cin_emp = %s" %(cin_employe)
@@ -96,6 +88,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.ajout = ajouter_emp.Ajouter_Employe()
         self.ajout.show()
         self.close()
+
 
     def delete_row(self):
         l = self.table_emp.currentIndex().row()

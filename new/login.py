@@ -11,6 +11,9 @@ class Login(QWidget, Ui_Login):
         self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('utilisateur')
+        self.model.select()
+        print(self.model.select)
+        print(self.model.rowCount)
         self.login.clicked.connect(self.submit)
 
     def submit(self):
@@ -18,14 +21,16 @@ class Login(QWidget, Ui_Login):
         passwd = self.password.text()
         critere =""
         if not len(user_code) == 0:
-            critere += " code_util = %s" %(user_code)
+            critere += " code_util = '%s'" %user_code
         if not len(passwd) == 0:
-            critere += " AND mot_de_passe = %s" %(passwd)
+            critere += " AND mot_de_passe = '%s'" %passwd
+
         print(critere)
         print(self.model.select())
         self.model.setFilter(critere)
         self.model.select()
         print(self.model.rowCount())
+
         if (self.model.rowCount()== 1):
             print('ok')
             self.Main = Liste_Employe()

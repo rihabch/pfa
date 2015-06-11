@@ -4,6 +4,7 @@ import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from ajouter_emp import Ajouter_Employe
+from liste_comp import Liste_Competence
 from liste_employe import Liste_Employe
 from liste_op import Liste_Operation
 from login import Login
@@ -22,13 +23,17 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    #MainWindow = Ajout_Competence()
+
+
+    #MainWindow = MyApp()
+
+    connexion.connect()
     #MainWindow = Liste_Operation()
     #MainWindow = Liste_Employe()
     MainWindow = Ajouter_Employe()
+    #MainWindow = Liste_Competence()
     #MainWindow = Login()
 
-    #MainWindow = MyApp()
     MainWindow.show()
     connexion.connect()
     sys.exit(app.exec_())

@@ -30,12 +30,10 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         self.tableView.setModel(self.model)
 
     def initialise(self):
-        self.code_op_aj.clear()
-        self.nom_op_aj.clear()
-        self.minute_op_aj.clear()
-        self.machine_op_aj.clear()
-        self.Qcritere.clear()
-        self.video_path.clear()
+        self.code_op.clear()
+        self.nom_op.clear()
+        self.machine_op.clear()
+
 
     def search(self):
         print("trying to do some research")
