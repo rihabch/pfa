@@ -4,7 +4,6 @@ __author__ = 'imen'
 from ui_ajouter_emp import Ui_Add_Employee
 import liste_employe
 from PyQt5.QtWidgets import QWidget, QMessageBox
-from PyQt5.QtGui import QValidator
 from PyQt5 import QtSql, QtCore, QtGui
 from session import Session
 
@@ -21,46 +20,45 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.initialiser_emp.clicked.connect(self.initialise)
         self.enregistrer_emp.clicked.connect(self.add)
 
-
-
-
-
     def add(self):
         matricule_employe = self.mat_aj_emp.text()
-        #int_expreg = QtCore.QRegExp('[0-9]+')
-        #int_validator = QtGui.QRegExpValidator(int_expreg,self.mat_aj_emp)
-        #self.mat_aj_emp.setValidator(int_validator)
+        int_expreg = QtCore.QRegExp('[0-9]+')
+        int_validator = QtGui.QRegExpValidator(int_expreg,self.mat_aj_emp)
+        self.mat_aj_emp.setValidator(int_validator)
         cin_employe = self.cin_aj_emp.text()
-        #cin_expreg = QtCore.QRegExp('[0-9]{8}')
-        #cin_validator = QtGui.QRegExpValidator(cin_expreg,self.cin_aj_emp)
-        #self.cin_aj_emp.setValidator(cin_validator)
+        cin_expreg = QtCore.QRegExp('[0-9]{8}')
+        cin_validator = QtGui.QRegExpValidator(cin_expreg,self.cin_aj_emp)
+        self.cin_aj_emp.setValidator(cin_validator)
         nom_employe = self.nom_aj_emp.text()
         prenom_employe = self.prenom_aj_emp.text()
         date_naissance = self.naiss_aj_emp.text()
         date_embauche = self.emb_aj_emp.text()
         #photo = self.photo_aj_emp.text()
         self.parcourir.clicked.connect(self.import_picture)
-        #if int_validator.State == QtGui.QValidator.Acceptable and cin_validator.State == QtGui.QValidator.Acceptable:
-        #    print('ok')
-        #else:
-        #    QMessageBox.information(self, "Failure","CIN and Matricule should be integer")
 
-        nbr = self.model.rowCount()
-        self.model.insertRow(nbr)
-        self.model.setData(self.model.index(nbr - 1, 0), cin_employe)
-        self.model.setData(self.model.index(nbr - 1, 1), matricule_employe)
-        self.model.setData(self.model.index(nbr - 1, 2), 'admin_01')
-        self.model.setData(self.model.index(nbr - 1, 3), nom_employe)
-        self.model.setData(self.model.index(nbr - 1, 4), prenom_employe)
-        self.model.setData(self.model.index(nbr - 1, 5), date_embauche)
-        # self.model.setData(self.model.index(nbr - 1, 6),str(dir + "" + photo))
-        self.model.setData(self.model.index(nbr - 1, 8), date_naissance)
-
-        if self.model.submitAll():
-           QMessageBox.information(self, "Success","Add Successful" )
-
-        #else:
-        #    QMessageBox.information(self, "Failure","CIN and Matricule should be integer")
+        if not (self.mat_aj_emp.hasAcceptableInput()):
+            QMessageBox.information(self, "Erreur","Matricule non valide")
+        if not (self.cin_aj_emp.hasAcceptableInput()):
+            QMessageBox.information(self, "Erreur","CIN non valide")
+        if (self.cin_aj_emp.hasAcceptableInput()) and (self.mat_aj_emp.hasAcceptableInput()):
+            nbr = self.model.rowCount()
+            print("nombre lignes")
+            print(nbr)
+            self.model.insertRow(nbr)
+            self.model.setData(self.model.index(nbr, 0), cin_employe)
+            self.model.setData(self.model.index(nbr, 1), matricule_employe)
+            self.model.setData(self.model.index(nbr, 2), 'admin_01')
+            self.model.setData(self.model.index(nbr, 3), nom_employe)
+            self.model.setData(self.model.index(nbr, 4), prenom_employe)
+            self.model.setData(self.model.index(nbr, 5), date_embauche)
+            # self.model.setData(self.model.index(nbr - 1, 6),str(dir + "" + photo))
+            self.model.setData(self.model.index(nbr, 8), date_naissance)
+            count = self.model.rowCount()
+            print(count)
+            if (count == nbr+1):
+                self.model.submitAll()
+                QMessageBox.information(self, "Success","Add Successful" )
+                self.initialise()
 
 
     def initialise(self):
@@ -78,7 +76,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
 
         # QFileDialog.getOpenFileName(self, 'Open File')
 
-         fileName = QtGui.QFileDialog.getSaveFileName(self, 'Dialog Title', '/home/imen', selectedFilter='*.*')
+         fileName = QWidget.QFileDialog.getSaveFileName(self, 'Dialog Title', '/home/imen', selectedFilter='*.*')
          if fileName:
             print (fileName)
 

@@ -20,9 +20,9 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.ajouter_emp.clicked.connect(self.toAdd)
         self.Modifier_emp.clicked.connect(self.edit)
         self.supprimer_emp.clicked.connect(self.delete_row)
-        session = Session()
-        print("login admin: ")
-        print(session.passe)
+        #session = Session()
+        #print("login admin: ")
+        #print(session.passe)
 
 
     def fill(self,model):
@@ -98,6 +98,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
                 QMessageBox.information(self, "Erreur","Erreur modification attribut")
         else:
                 reply.close(self)
+
 
     def toAdd(self):
         self.ajout = ajouter_emp.Ajouter_Employe()
