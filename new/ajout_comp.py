@@ -12,14 +12,17 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('competence')
         self.model.select()
+        #matricule= self.cin_cmp_aj.text()
+        #if not len(matricule) == 0:
+        #    print("before enter matricule")
+        #    print(matricule)
+        #    self.cin_cmp_aj.editingFinished.connect(lambda: self.add_info(123))
         self.annuler_cmp.clicked.connect(self.toListe)
         self.initialiser_aj_cmp.clicked.connect(self.initialise)
         self.enregistrer_cmp.clicked.connect(self.add)
 
     def add(self):
-        matricule= self.mat_cmp_aj.text()
-
-        self.mat_cmp_anj.editingChanged.connect(self.add_info(matricule))
+        matricule= self.cin_cmp_aj.text()
         #nom_employe = self.nom_cmp_aj.text()
         #prenom_employe = self.prenom_cmp_aj.text()
         #operation = self.op_cmp_aj.text()
@@ -80,7 +83,7 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
             color = '#f6989d' # red
         sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
 
-
+"""
     def add_info(self,matricule):
         self.model2 = QtSql.QSqlRelationalTableModel()
         self.model2.setTable('employe')
@@ -90,9 +93,17 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.model2.select()
         if (self.model2.rowCount() == 1):
             print('ok add_info')
-            index = self.model2.fieldIndex("nom")
-            index2 = self.model2.fieldIndex("prenom")
-            nom_employe = self.model2.data(index2)
-            prenom_employe = self.prenom_cmp_aj.text()
+            record = self.model.record(0)
+            nom_employe = record.value("nom")
+            prenom_employe = record.value("prenom")
+            #index = self.model2.fieldIndex("nom")
+            #index2 = self.model2.fieldIndex("prenom")
+            #nom_employe = self.model2.data(index2)
+            #prenom_employe = self.prenom_cmp_aj.text()
+            print("nom employe")
+            print(nom_employe)
+            print("prenom employe")
+            print(prenom_employe)
             self.nom_cmp_aj.insert(nom_employe)
             self.prenom_cmp_aj.insert(prenom_employe)
+"""

@@ -13,7 +13,6 @@ class Login(QWidget, Ui_Login):
         self.model.setTable('utilisateur')
         self.login.clicked.connect(self.submit)
 
-        #self.msgBox= QtGui.QMessageBox.warning(self, 'Error Connection', 'Bad user or password')
     def submit(self):
         user_code = self.user.text()
         passwd = self.password.text()
@@ -21,11 +20,12 @@ class Login(QWidget, Ui_Login):
         if not len(user_code) == 0:
             critere += " code_util = %s" %(user_code)
         if not len(passwd) == 0:
-            critere += " AND mot_de_passe = '%s'" %(passwd)
+            critere += " AND mot_de_passe = %s" %(passwd)
         print(critere)
+        print(self.model.select())
         self.model.setFilter(critere)
         self.model.select()
-
+        print(self.model.rowCount())
         if (self.model.rowCount()== 1):
             print('ok')
             self.Main = Liste_Employe()
@@ -36,11 +36,12 @@ class Login(QWidget, Ui_Login):
             #print("login: ")
             #print(session.passe)
 
+
         else:
             QMessageBox.information(self, "ERROR","Invalid Login or Password" )
             self.user.clear()
             self.password.clear()
-            #msgBox = QtGui.QMessageBox()
-            #print("connexion échouée")
 
-            #ret = self.msgBox.exec_()
+        #self.Main = Liste_Employe()
+        #self.Main.show()
+        #self.close()
