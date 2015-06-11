@@ -94,7 +94,8 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
     #    color = '#f6989d' # red
      #   sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
 
-"""
+
+
     def add_info(self,matricule):
         self.model2 = QtSql.QSqlRelationalTableModel()
         self.model2.setTable('employe')
@@ -117,7 +118,7 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
             print(prenom_employe)
             self.nom_cmp_aj.insert(nom_employe)
             self.prenom_cmp_aj.insert(prenom_employe)
-"""
+
 
 
 
