@@ -38,7 +38,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         prenom_employe = self.prenom_aj_emp.text()
         date_naissance = self.naiss_aj_emp.text()
         date_embauche = self.emb_aj_emp.text()
-        #photo = self.photo_aj_emp.text()
+        photo = self.photo_aj_emp.text()
         self.parcourir.clicked.connect(self.import_picture)
         #if int_validator.State == QtGui.QValidator.Acceptable and cin_validator.State == QtGui.QValidator.Acceptable:
         #    print('ok')
@@ -53,7 +53,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.model.setData(self.model.index(nbr - 1, 3), nom_employe)
         self.model.setData(self.model.index(nbr - 1, 4), prenom_employe)
         self.model.setData(self.model.index(nbr - 1, 5), date_embauche)
-        # self.model.setData(self.model.index(nbr - 1, 6),str(dir + "" + photo))
+        self.model.setData(self.model.index(nbr - 1, 6),)
         self.model.setData(self.model.index(nbr - 1, 8), date_naissance)
 
         if self.model.submitAll():
@@ -78,10 +78,12 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
 
         # QFileDialog.getOpenFileName(self, 'Open File')
 
-         fileName = QtGui.QFileDialog.getSaveFileName(self, 'Dialog Title', '/home/imen', selectedFilter='*.*')
-         if fileName:
-            print (fileName)
-
+         #fileName = QtGui.QFileDialog.getSaveFileName(self, 'Dialog Title', '/home/imen', selectedFilter='*.*')
+         #if fileName:
+          #  print (fileName)
+        dossier =QtGui.QFileDialog.getExistingDirectory(self)
+        if dossier:
+            return dossier
 
 
     def toListe(self):
