@@ -24,10 +24,12 @@ class Login(QWidget, Ui_Login):
             critere += " code_util = '%s'" %user_code
         if not len(passwd) == 0:
             critere += " AND mot_de_passe = '%s'" %passwd
+
         print(critere)
+        print(self.model.select())
         self.model.setFilter(critere)
         self.model.select()
-        print (self.model.select())
+        print(self.model.rowCount())
 
         if (self.model.rowCount()== 1):
             print('ok')
@@ -39,11 +41,12 @@ class Login(QWidget, Ui_Login):
             #print("login: ")
             #print(session.passe)
 
+
         else:
             QMessageBox.information(self, "ERROR","Invalid Login or Password" )
             self.user.clear()
             self.password.clear()
-            #msgBox = QtGui.QMessageBox()
-            #print("connexion échouée")
 
-            #ret = self.msgBox.exec_()
+        #self.Main = Liste_Employe()
+        #self.Main.show()
+        #self.close()

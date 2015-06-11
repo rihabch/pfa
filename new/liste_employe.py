@@ -1,7 +1,7 @@
 from ui_liste_emp import Ui_Employee_List
 import ajouter_emp
 from PyQt5.QtWidgets import QWidget, QMessageBox
-from PyQt5 import QtSql, QtCore, QtWidgets
+from PyQt5 import QtSql, QtCore, QtGui, QtWidgets
 from session import Session
 
 class Liste_Employe(QWidget, Ui_Employee_List):

@@ -90,6 +90,3 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.list = liste_employe.Liste_Employe()
         self.list.show()
         self.close()
-
-
-
