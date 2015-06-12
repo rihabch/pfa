@@ -12,7 +12,7 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('competence')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
-        self.competence.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.competence.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
         self.model.select()
         self.fill(self.model)
         self.initialiser_cmp.clicked.connect(self.initialise)
@@ -24,11 +24,12 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
 
     def fill(self,model):
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Matricule")
-        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Nom")
-        self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Prenom")
-        self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Code Operation")
-        self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Nom Operation")
+        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Code Operation")
+        self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Code Utilisateur")
+        self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Allure")
+        self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Taux de retouche")
         self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Competence")
+        self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Date Affectation")
         self.competence.setModel(model)
 
     def edit(self):

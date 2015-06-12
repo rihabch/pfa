@@ -21,16 +21,17 @@ class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
         self.nom_op_aj.clear()
         self.minute_op_aj.clear()
         self.machine_op_aj.clear()
-        self.Qcritere.clear()
-        self.video_path.clear()
+        #self.Qcritere.clear()
+        #self.video_path.clear()
+        #self.video_path.clear()
 
     def add(self):
         code_op = self.code_op_aj.text()
         nom_op = self.nom_op_aj.text()
         minutage = self.minute_op_aj.text()
         machine = self.machine_op_aj.text()
-        critere = self.Qcritere.text()
-        video = self.video_path.text()
+        #critere = self.Qcritere.text()
+        #video = self.video_path.text()
         # self.parcourir.clicked.connect(self.import_video)
 
         nbr = self.model.rowCount()
@@ -42,8 +43,8 @@ class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
         self.model.setData(self.model.index(nbr, 2), nom_op)
         self.model.setData(self.model.index(nbr, 3), minutage)
         self.model.setData(self.model.index(nbr, 4), machine)
-        self.model.setData(self.model.index(nbr, 5), critere)
-        self.model.setData(self.model.index(nbr, 6), video)
+        #self.model.setData(self.model.index(nbr, 5), critere)
+        #self.model.setData(self.model.index(nbr, 6), video)
         count = self.model.rowCount()
         print(count)
         if (count == nbr+1):

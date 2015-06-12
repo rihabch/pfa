@@ -11,7 +11,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('employe')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
-        self.table_emp.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.table_emp.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
         self.table_emp.setModel(self.model)
         self.model.select()
         self.fill(self.model)

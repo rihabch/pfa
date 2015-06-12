@@ -13,7 +13,7 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('operation')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
-        self.tableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
         self.tableView.setModel(self.model)
         self.model.select()
         self.fill(self.model)

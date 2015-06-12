@@ -26,5 +26,4 @@ if __name__ == "__main__":
     #MainWindow = Ajout_Competence()
     #MainWindow = Ajouter_Operation()
     MainWindow.show()
-    #connexion.connect()
     sys.exit(app.exec_())

@@ -5,44 +5,51 @@ import liste_comp
 from PyQt5.QtWidgets import QWidget , QMessageBox
 from PyQt5 import QtSql, QtCore, QtGui
 
+
 class Ajout_Competence(QWidget, Ui_Ajout_Competence):
     def __init__(self):
         super(Ajout_Competence, self).__init__()
         self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
         self.model.setTable('competence')
+
+        self.model.setRelation(1,QtSql.QSqlRelation("operation", "code_op", "code_op"))
+        self.model.setRelation(0,QtSql.QSqlRelation("employe", "matricule", "matricule"))
+        #self.model.setRelation(0,QtSql.QSqlRelation("employe", "matricule", "nom"))
+        #self.model.setRelation(0,QtSql.QSqlRelation("employe", "matricule", "prenom"))
+
         self.model.select()
-        #    self.mat_cmp_aj.editingFinished.connect(lambda: self.add_info(123))
+
+        self.relationModel = self.model.relationModel(1)
+        self.op_cmp_aj.setModel(self.relationModel)
+        self.op_cmp_aj.setModelColumn(self.relationModel.fieldIndex("code_op"))
+
+        self.relationModel2 = self.model.relationModel(0)
+        self.mat_cmp_aj.setModel(self.relationModel2)
+        self.mat_cmp_aj.setModelColumn(self.relationModel2.fieldIndex("matricule"))
+
+
+        #self.mat_cmp_aj.currentIndexChanged.connect(self.add_info)
+
         self.annuler_cmp.clicked.connect(self.toListe)
         #self.initialiser_aj_cmp.clicked.connect(self.initialise)
         self.enregistrer_cmp.clicked.connect(self.add)
 
     def add(self):
-        matricule= self.mat_cmp_aj.text()
+        matricule= str(self.mat_cmp_aj.currentText())
+
         #nom_employe = self.nom_cmp_aj.text()
         #prenom_employe = self.prenom_cmp_aj.text()
-        operation = self.op_cmp_aj.text()
+        operation = str(self.op_cmp_aj.currentText())
         allure = self.allure_cmp_aj.text()
         retouche = self.retouche_cmp_aj.text()
         #self.parcourir.clicked.connect(self.import_picture)
 
-        op_expreg = QtCore.QRegExp('[A-Za-z]{3}[0-9]*')
-        op_validator = QtGui.QRegExpValidator(op_expreg,self.op_cmp_aj)
-        self.op_cmp_aj.setValidator(op_validator)
 
-        int_expreg = QtCore.QRegExp('[0-9]+')
-        int_validator = QtGui.QRegExpValidator(int_expreg,self.mat_cmp_aj)
-        self.mat_cmp_aj.setValidator(int_validator)
 
         validator_int = QtGui.QIntValidator(0,100,self)
         self.retouche_cmp_aj.setValidator(validator_int)
         self.allure_cmp_aj.setValidator(validator_int)
-
-        if not (self.mat_cmp_aj.hasAcceptableInput()):
-            QMessageBox.information(self, "Erreur","Matricule non valide")
-
-        if not (self.op_cmp_aj.hasAcceptableInput()):
-            QMessageBox.information(self, "Erreur","Operation non valide")
 
         if not (self.allure_cmp_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Allure non valide")
@@ -50,9 +57,7 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         if not (self.retouche_cmp_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Retouche non valide")
 
-        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.mat_cmp_aj.hasAcceptableInput()) \
-                and (self.retouche_cmp_aj.hasAcceptableInput()) and (self.op_cmp_aj.hasAcceptableInput()):
-
+        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
             print("verifié")
             if int(retouche) > 8:
                 pour_comp = int(allure) - int(retouche)
@@ -95,31 +100,23 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.list.show()
         self.close()
 
-    def add_info(self,matricule, prenom_employe):
-        self.model2 = QtSql.QSqlRelationalTableModel()
-        self.model2.setTable('employe')
-        critere ="matricule = %s" %(matricule)
-        print(critere)
-        self.model2.setFilter(critere)
-        self.model2.select()
-        if (self.model2.rowCount() == 1):
-            print('ok add_info')
-            record = self.model.record(0)
-            self.prenom_cmp_aj.insert(prenom_employe)
-            self.prenom_cmp_aj.insert(prenom_employe)
-            nom_employe = record.value("nom")
-            prenom_employe = record.value("prenom")
-            #index = self.model2.fieldIndex("nom")
-            #index2 = self.model2.fieldIndex("prenom")
-            #nom_employe = self.model2.data(index2)
-            #prenom_employe = self.prenom_cmp_aj.text()
-            print("nom employe")
-            print(nom_employe)
-            print("prenom employe")
-            print(prenom_employe)
-            self.nom_cmp_aj.insert(nom_employe)
-            self.prenom_cmp_aj.insert(prenom_employe)
+    """def add_info(self):
+        matricule= str(self.mat_cmp_aj.currentText())
+        print(matricule)
+        self.model.relationModel(0).setFilter("matricule = '%s'" %matricule)
+        self.nom_cmp_aj.setModel(self.relationModel2)
+        self.nom_cmp_aj.setModelColumn(self.relationModel2.fieldIndex("nom"))
+        self.model.select()
+        nom= str(self.nom_cmp_aj.currentText())
+        print("nom")
+        print(nom)
+        self.prenom_cmp_aj.setModel(self.relationModel2)
+        self.prenom_cmp_aj.setModelColumn(self.relationModel2.fieldIndex("prenom"))
+        prenom= str(self.prenom_cmp_aj.currentText())
 
+        print("prenom")
+        print(prenom)
+"""
     def set_comp(self,com):
         if com < 20:
             return 1

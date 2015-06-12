@@ -40,7 +40,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         #if not (self.mat_aj_emp.hasAcceptableInput):
         #    QMessageBox.information(self, "Erreur","Matricule non valide")
         # photo = self.photo_aj_emp.text()
-        self.parcourir.clicked.connect(self.import_picture)
+        #self.parcourir.clicked.connect(self.import_picture)
 
 
         if not (self.mat_aj_emp.hasAcceptableInput()):
@@ -54,11 +54,12 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
             self.model.insertRow(nbr)
             self.model.setData(self.model.index(nbr, 0), cin_employe)
             self.model.setData(self.model.index(nbr, 1), matricule_employe)
-            self.model.setData(self.model.index(nbr, 2), 'admin_01')
+            self.model.setData(self.model.index(nbr, 2), 'admin_02')
             self.model.setData(self.model.index(nbr, 3), nom_employe)
             self.model.setData(self.model.index(nbr, 4), prenom_employe)
             self.model.setData(self.model.index(nbr, 5), date_embauche)
             # self.model.setData(self.model.index(nbr - 1, 6),str(dir + "" + photo))
+            self.model.setData(self.model.index(nbr,7),"P")
             self.model.setData(self.model.index(nbr, 8), date_naissance)
             count = self.model.rowCount()
             print(count)
