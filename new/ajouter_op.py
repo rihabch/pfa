@@ -49,7 +49,7 @@ class Ajouter_Operation(QWidget, Ui_Ajouter_Op):
         print(count)
         if (count == nbr+1):
             self.model.submitAll()
-            QMessageBox.information(self, "Success","Add Successful" )
+            QMessageBox.information(self, "Succes","Ajout avec Succes" )
             self.initialise()
 
         else:

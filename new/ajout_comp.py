@@ -82,7 +82,7 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
             print(count)
             if (count == nbr+1):
                 self.model.submitAll()
-                QMessageBox.information(self, "Success","Add Successful" )
+                QMessageBox.information(self, "Succes","Ajout avec Succes" )
                 self.initialise()
 
 
