@@ -4,7 +4,8 @@ from ui_ajouter_emp import Ui_Add_Employee
 import liste_employe
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtSql, QtCore, QtGui
-from datetime import date, datetime
+import time
+import datetime
 from session import Session
 
 
@@ -17,7 +18,6 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.model.setTable('employe')
         self.model.select()
         self.annuler_emp.clicked.connect(self.toListe)
-        #self.initialiser_emp.clicked.connect(self.initialise)
         self.enregistrer_emp.clicked.connect(self.add)
 
     def add(self):
@@ -35,7 +35,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         prenom_employe = self.prenom_aj_emp.text()
         date_naissance = self.naiss_aj_emp.text()
         date_embauche = self.emb_aj_emp.text()
-        if (date_naissance > date_embauche):
+        if date_naissance>date_embauche:
             ok = False
             QMessageBox.information(self, "Erreur", "Dates non valides")
         else:
@@ -64,6 +64,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
 
 
 
+
             count = self.model.rowCount()
             print(count)
             if (count == nbr + 1):
@@ -76,8 +77,10 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.cin_aj_emp.clear()
         self.nom_aj_emp.clear()
         self.prenom_aj_emp.clear()
-        #self.naiss_aj_emp.setDate(datetime.datetime.strptime('01/01/2000',"%d/%m/%Y").date())
-        #self.emb_aj_emp.setDate(datetime.datetime.strptime('01/01/2000',"%d/%m/%Y").date())
+        today = time.strftime("%d/%m/%Y")
+        print(today)
+        self.naiss_aj_emp.setDate(datetime.datetime.now)
+        self.emb_aj_emp.setDate(datetime.datetime.now)
         #self.photo_aj_emp.clear()
 
     def import_picture(self):

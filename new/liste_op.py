@@ -11,7 +11,7 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
         super(Liste_Operation, self).__init__()
         self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
-        self.model.setTable('operation')
+        self.model.setTable('operations')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
         self.tableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
         self.tableView.setModel(self.model)
@@ -25,11 +25,11 @@ class Liste_Operation(QWidget, Ui_Liste_Op):
 
     def fill(self,model):
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Code Operation")
-        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Code Utilisateur")
-        self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Nom Operation")
-        self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Minutage")
-        self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Nom Machine")
-        self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Critere de Qualite")
+        self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Code Utilisateur")
+        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Nom Operation")
+        self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Minutage")
+        self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Nom Machine")
+        self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Critere de Qualite")
         self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Video")
         self.tableView.setModel(model)
 

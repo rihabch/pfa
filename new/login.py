@@ -49,6 +49,4 @@ class Login(QWidget, Ui_Login):
             self.user.clear()
             self.password.clear()
 
-        #self.Main = Liste_Employe()
-        #self.Main.show()
-        #self.close()
+

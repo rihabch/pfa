@@ -2,6 +2,7 @@ from ui_liste_emp import Ui_Employee_List
 import ajouter_emp
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtSql, QtCore, QtGui, QtWidgets
+
 from session import Session
 
 class Liste_Employe(QWidget, Ui_Employee_List):
@@ -9,7 +10,7 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         super(Liste_Employe, self).__init__()
         self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
-        self.model.setTable('employe')
+        self.model.setTable('employes')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
         self.table_emp.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
         self.table_emp.setModel(self.model)
@@ -26,15 +27,15 @@ class Liste_Employe(QWidget, Ui_Employee_List):
 
 
     def fill(self,model):
-        model.setHeaderData(1, QtCore.Qt.Horizontal, "Matricule")
-        model.setHeaderData(0, QtCore.Qt.Horizontal, "CIN")
-        model.setHeaderData(4, QtCore.Qt.Horizontal, "Prenom")
-        model.setHeaderData(3, QtCore.Qt.Horizontal, "Nom")
-        model.setHeaderData(7, QtCore.Qt.Horizontal, "Presence")
-        model.setHeaderData(8, QtCore.Qt.Horizontal, "Date Naissance")
-        model.setHeaderData(5, QtCore.Qt.Horizontal, "Date Embauche")
-        model.setHeaderData(6, QtCore.Qt.Horizontal, "Image")
-        model.setHeaderData(2, QtCore.Qt.Horizontal, "Code Utilisateur")
+        model.setHeaderData(0, QtCore.Qt.Horizontal, "Matricule")
+        model.setHeaderData(1, QtCore.Qt.Horizontal, "CIN")
+        model.setHeaderData(3, QtCore.Qt.Horizontal, "Prenom")
+        model.setHeaderData(2, QtCore.Qt.Horizontal, "Nom")
+        model.setHeaderData(4, QtCore.Qt.Horizontal, "Presence")
+        model.setHeaderData(5, QtCore.Qt.Horizontal, "Date Naissance")
+        model.setHeaderData(6, QtCore.Qt.Horizontal, "Date Embauche")
+        model.setHeaderData(8, QtCore.Qt.Horizontal, "Image")
+        model.setHeaderData(7, QtCore.Qt.Horizontal, "Code Utilisateur")
         self.table_emp.setModel(model)
 
     def initialise(self):
@@ -47,8 +48,8 @@ class Liste_Employe(QWidget, Ui_Employee_List):
         self.table_emp.setModel(self.model2)
         self.model2.select()
         self.fill(self.model2)
-        #self.date_emb_emp.setDateTime(QtCore.QDateTime.currentDateTime())
-        #self.date_nass_emp.setDateTime(QtCore.QDateTime.currentDateTime())
+        #self.date_emb_emp.setDateTime(time.strftime("%d/%m/%Y"))
+        #self.date_nass_emp.setDateTime(time.strftime("%d/%m/%Y"))
 
     def search(self):
         cin_employe = self.cin_emp.text()
