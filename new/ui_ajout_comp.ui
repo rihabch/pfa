@@ -19,7 +19,7 @@
      <x>200</x>
      <y>160</y>
      <width>351</width>
-     <height>217</height>
+     <height>220</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout_4">
@@ -72,12 +72,12 @@
     <item row="5" column="0">
      <widget class="QLabel" name="labelretouche_cmp_aj">
       <property name="text">
-       <string>Taux de Retouche :</string>
+       <string>Nombre Total de Pièces:</string>
       </property>
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QLineEdit" name="retouche_cmp_aj"/>
+     <widget class="QLineEdit" name="total_cmp_aj"/>
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="labelcode_cmp_aj">
@@ -86,7 +86,30 @@
       </property>
      </widget>
     </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="retouches_pieces">
+      <property name="text">
+       <string>Nombre de Pièces Retouchées:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="retouche_comp"/>
+    </item>
    </layout>
+   <widget class="QLabel" name="total_piece">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget_12">
    <property name="geometry">

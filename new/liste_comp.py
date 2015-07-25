@@ -25,11 +25,11 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
     def fill(self,model):
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Matricule")
         self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Code Operation")
-        self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Code Utilisateur")
+        self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Competence")
         self.model.setHeaderData(3, QtCore.Qt.Horizontal, "Allure")
         self.model.setHeaderData(4, QtCore.Qt.Horizontal, "Taux de retouche")
-        self.model.setHeaderData(2, QtCore.Qt.Horizontal, "Competence")
         self.model.setHeaderData(5, QtCore.Qt.Horizontal, "Date Affectation")
+        self.model.setHeaderData(6, QtCore.Qt.Horizontal, "Code Utilisateur")
         self.competence.setModel(model)
 
     def edit(self):
@@ -63,7 +63,7 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
         self.op_cmp.clear()
         self.comp_cmp.clear()
         self.model2 = QtSql.QSqlRelationalTableModel()
-        self.model2.setTable('competence')
+        self.model2.setTable('competences')
         self.competence.setModel(self.model2)
         self.model2.select()
         self.fill(self.model2)

@@ -11,10 +11,10 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         super(Ajout_Competence, self).__init__()
         self.setupUi(self)
         self.model = QtSql.QSqlRelationalTableModel()
-        self.model.setTable('competence')
+        self.model.setTable('competences')
 
-        self.model.setRelation(1,QtSql.QSqlRelation("operation", "code_op", "code_op"))
-        self.model.setRelation(0,QtSql.QSqlRelation("employe", "matricule", "matricule"))
+        self.model.setRelation(1,QtSql.QSqlRelation("operations", "code_op", "code_op"))
+        self.model.setRelation(0,QtSql.QSqlRelation("employes", "matricule", "matricule"))
         #self.model.setRelation(0,QtSql.QSqlRelation("employe", "matricule", "nom"))
         #self.model.setRelation(0,QtSql.QSqlRelation("employe", "matricule", "prenom"))
 
@@ -42,22 +42,31 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         #prenom_employe = self.prenom_cmp_aj.text()
         operation = str(self.op_cmp_aj.currentText())
         allure = self.allure_cmp_aj.text()
-        retouche = self.retouche_cmp_aj.text()
+        total = self.retouche_cmp_aj.text()
+        p_ret = self.retouche_comp.text()
         #self.parcourir.clicked.connect(self.import_picture)
 
 
 
         validator_int = QtGui.QIntValidator(0,100,self)
-        self.retouche_cmp_aj.setValidator(validator_int)
+        int_validator = QtGui.QIntValidator(self)
         self.allure_cmp_aj.setValidator(validator_int)
+        self.retouche_cmp_aj.setValidator(int_validator)
+        self.retouche_comp.setValidator(int_validator)
 
         if not (self.allure_cmp_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Allure non valide")
 
-        if not (self.retouche_cmp_aj.hasAcceptableInput()):
+        if not (self.retouche_cmp_aj.hasAcceptableInput() or self.retouche_comp.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Retouche non valide")
 
-        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
+        if (self.retouche_comp.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
+            if int(total) < int(p_ret):
+               QMessageBox.information(self, "Erreur","Le nombre de pièces retouchées est supérieur au nombre total de pièces")
+            else:
+                retouche = (int(p_ret)*100)/ int(total)
+
+        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.retouche_comp.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
             print("verifié")
             if int(retouche) > 8:
                 pour_comp = int(allure) - int(retouche)
@@ -73,11 +82,11 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
             self.model.insertRow(nbr)
             self.model.setData(self.model.index(nbr, 0), matricule)
             self.model.setData(self.model.index(nbr, 1), operation)
-            self.model.setData(self.model.index(nbr, 2), 'admin_02')
+            self.model.setData(self.model.index(nbr, 6), 'admin_02')
             self.model.setData(self.model.index(nbr, 3), allure)
             self.model.setData(self.model.index(nbr, 4), retouche)
-            self.model.setData(self.model.index(nbr, 5), competence)
-            self.model.setData(self.model.index(nbr, 6), QtCore.QDateTime.currentDateTime())
+            self.model.setData(self.model.index(nbr, 2), competence)
+            self.model.setData(self.model.index(nbr, 5), QtCore.QDateTime.currentDateTime())
             count = self.model.rowCount()
             print(count)
             if (count == nbr+1):
@@ -94,6 +103,7 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         self.op_cmp_aj.clear()
         self.allure_cmp_aj.clear()
         self.retouche_cmp_aj.clear()
+        self.retouche_comp.clear()
 
     def toListe(self):
         self.list = liste_comp.Liste_Competence()
