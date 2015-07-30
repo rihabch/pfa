@@ -42,8 +42,8 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         #prenom_employe = self.prenom_cmp_aj.text()
         operation = str(self.op_cmp_aj.currentText())
         allure = self.allure_cmp_aj.text()
-        total = self.retouche_cmp_aj.text()
-        p_ret = self.retouche_comp.text()
+        total = self.total_piece_aj.text()
+        p_ret = self.retouche_piece_aj.text()
         #self.parcourir.clicked.connect(self.import_picture)
 
 
@@ -51,22 +51,22 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         validator_int = QtGui.QIntValidator(0,100,self)
         int_validator = QtGui.QIntValidator(self)
         self.allure_cmp_aj.setValidator(validator_int)
-        self.retouche_cmp_aj.setValidator(int_validator)
-        self.retouche_comp.setValidator(int_validator)
+        self.total_piece_aj.setValidator(int_validator)
+        self.retouche_piece_aj.setValidator(int_validator)
 
         if not (self.allure_cmp_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Allure non valide")
 
-        if not (self.retouche_cmp_aj.hasAcceptableInput() or self.retouche_comp.hasAcceptableInput()):
+        if not (self.total_piece_aj.hasAcceptableInput() or self.retouche_piece_aj.hasAcceptableInput()):
             QMessageBox.information(self, "Erreur","Retouche non valide")
 
-        if (self.retouche_comp.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
+        if (self.retouche_piece_aj.hasAcceptableInput()) and (self.total_piece_aj.hasAcceptableInput()):
             if int(total) < int(p_ret):
                QMessageBox.information(self, "Erreur","Le nombre de pièces retouchées est supérieur au nombre total de pièces")
             else:
                 retouche = (int(p_ret)*100)/ int(total)
 
-        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.retouche_comp.hasAcceptableInput()) and (self.retouche_cmp_aj.hasAcceptableInput()):
+        if (self.allure_cmp_aj.hasAcceptableInput()) and (self.retouche_piece_aj.hasAcceptableInput()) and (self.total_piece_aj.hasAcceptableInput()):
             print("verifié")
             if int(retouche) > 8:
                 pour_comp = int(allure) - int(retouche)
@@ -102,8 +102,8 @@ class Ajout_Competence(QWidget, Ui_Ajout_Competence):
         #self.prenom_cmp_aj.clear()
         self.op_cmp_aj.clear()
         self.allure_cmp_aj.clear()
-        self.retouche_cmp_aj.clear()
-        self.retouche_comp.clear()
+        self.total_piece_aj.clear()
+        self.retouche_piece_aj.clear()
 
     def toListe(self):
         self.list = liste_comp.Liste_Competence()
