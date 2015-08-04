@@ -25,7 +25,7 @@ CREATE TABLE competences (
     competence bigint,
     allure bigint,
     taux_de_retouche bigint,
-    date_aff date,
+    date_aff timestamp without time zone NOT NULL,
     code_util character varying(254) NOT NULL
 );
 
@@ -185,6 +185,12 @@ ALTER TABLE utilisateur OWNER TO imen;
 --
 
 COPY competences (matricule, code_op, competence, allure, taux_de_retouche, date_aff, code_util) FROM stdin;
+21	VPC1012	5	90	1	2015-07-25 00:00:00	admin_02
+3254	VPNH0201	5	90	10	2015-07-30 00:00:00	admin_02
+21	VPC1012	5	90	10	2015-08-04 00:00:00	admin_02
+21	VPNH0201	3	60	20	2015-08-04 00:00:00	admin_02
+21	VPNH0201	5	90	7	2015-08-04 14:02:15.916	admin_02
+21	VPNH0201	3	50	3	2015-08-04 14:37:38.895	admin_02
 \.
 
 
@@ -260,6 +266,7 @@ VPMP020	montage poche	0.520000000000000018	301		admin_02
 PNCM002	conformage poches	0.959999999999999964	fer		admin_02	
 VPNH0201	nervure ouverture poches	1.01000000000000001	205		admin_01	
 VCM1203	assemblage poches	1.30000000000000004	3001		admin_01	
+VSCM01	ceintre	0.699999999999999956	9002	\N	admin_02	\N
 \.
 
 
@@ -289,7 +296,7 @@ admin_02	grp_01	chakchouk	rihab	developpeur	rihab
 --
 
 ALTER TABLE ONLY competences
-    ADD CONSTRAINT competences_pkey PRIMARY KEY (matricule, code_op);
+    ADD CONSTRAINT competences_pkey PRIMARY KEY (matricule, code_op, date_aff);
 
 
 --
