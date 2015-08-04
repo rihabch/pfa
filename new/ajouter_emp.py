@@ -19,6 +19,7 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.model.select()
         self.annuler_emp.clicked.connect(self.toListe)
         self.enregistrer_emp.clicked.connect(self.add)
+        self.initialiser_emp.clicked.connect(self.initialise)
 
     def add(self):
         matricule_employe = self.mat_aj_emp.text()
@@ -77,10 +78,9 @@ class Ajouter_Employe(QWidget, Ui_Add_Employee):
         self.cin_aj_emp.clear()
         self.nom_aj_emp.clear()
         self.prenom_aj_emp.clear()
-        today = time.strftime("%d/%m/%Y")
-        print(today)
-        self.naiss_aj_emp.setDate(datetime.datetime.now)
-        self.emb_aj_emp.setDate(datetime.datetime.now)
+        today = QtCore.QDate.currentDate()
+        self.naiss_aj_emp.setDate(today)
+        self.emb_aj_emp.setDate(today)
         #self.photo_aj_emp.clear()
 
     def import_picture(self):

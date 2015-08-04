@@ -48,12 +48,15 @@ class Ui_Add_Employee(object):
         self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.prenom_aj_emp)
         self.naiss_aj_emp = QtWidgets.QDateEdit(self.formLayoutWidget)
         self.naiss_aj_emp.setObjectName("naiss_aj_emp")
+        self.naiss_aj_emp.setCalendarPopup(True)
+
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.naiss_aj_emp)
         self.label_emb_aj_emp = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_emb_aj_emp.setObjectName("label_emb_aj_emp")
         self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.label_emb_aj_emp)
         self.emb_aj_emp = QtWidgets.QDateEdit(self.formLayoutWidget)
         self.emb_aj_emp.setObjectName("emb_aj_emp")
+        self.emb_aj_emp.setCalendarPopup(True)
         self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.emb_aj_emp)
         #self.label_photo_aj_emp = QtWidgets.QLabel(self.formLayoutWidget)
         #self.label_photo_aj_emp.setObjectName("label_photo_aj_emp")
@@ -79,17 +82,32 @@ class Ui_Add_Employee(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_5)
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+
         self.enregistrer_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
         self.enregistrer_emp.setObjectName("enregistrer_emp")
         self.horizontalLayout_6.addWidget(self.enregistrer_emp)
+
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_6.addItem(spacerItem)
+
         self.annuler_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
         self.annuler_emp.setObjectName("annuler_emp")
         self.horizontalLayout_6.addWidget(self.annuler_emp)
-        #self.initialiser_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
-        #self.initialiser_emp.setObjectName("initialiser_emp")
-        #self.horizontalLayout_6.addWidget(self.initialiser_emp)
+
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem)
+
+        self.initialiser_emp = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.initialiser_emp.setObjectName("initialiser_emp")
+        self.horizontalLayout_6.addWidget(self.initialiser_emp)
+
+        today = QtCore.QDate.currentDate()
+        self.naiss_aj_emp.setDate(today)
+        self.emb_aj_emp.setDate(today)
+
+        locale = QtCore.QLocale(QtCore.QLocale.French, QtCore.QLocale.France)
+        self.naiss_aj_emp.calendarWidget().setLocale(locale)
+        self.emb_aj_emp.calendarWidget().setLocale(locale)
 
         self.retranslateUi(MainWindow)
 
@@ -109,5 +127,6 @@ class Ui_Add_Employee(object):
         self.namepage_aj_emp.setText(_translate("MainWindow", "<html><head/><body><h1><span style=\" color:#55aaff;\">Ajouter des Employés</span></h1></body></html>"))
         self.enregistrer_emp.setText(_translate("MainWindow", "Enregistrer"))
         self.annuler_emp.setText(_translate("MainWindow", "Annuler"))
-        #self.initialiser_emp.setText(_translate("MainWindow", "Initialiser"))
+        self.initialiser_emp.setText(_translate("MainWindow", "Initialiser"))
+
 
