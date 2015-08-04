@@ -13,6 +13,7 @@ class Liste_Competence(QWidget, Ui_Liste_Competence):
         self.model.setTable('competences')
         self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
         self.competence.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
+        self.competence.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.model.select()
         self.fill(self.model)
         self.initialiser_cmp.clicked.connect(self.initialise)
